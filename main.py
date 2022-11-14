@@ -1,17 +1,55 @@
-# This is a sample Python script.
+import pygame
+import os
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+WIDTH, HEIGHT = 1280, 720 #setting the resolution
+WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Fixit") #the caption that appears at the top of the window
+
+FPS = 60 #FPS of our game
+VELOCITY = 5 #velocity of the character
+
+GREEN = (0, 229, 0) #the background color
+
+CHARACTER_RIGHT = pygame.image.load(os.path.join("Assets", "guy.webp.png"))#the model of the character
+CHARACTER_LEFT = pygame.image.load(os.path.join("Assets", "guy.webp"))#the model of the character
+CHARACTER_RIGHT = pygame.transform.scale(CHARACTER_RIGHT, (57, 100))
+CHARACTER = CHARACTER_RIGHT
+
+TEST_CHAR = pygame.image.load(os.path.join("Assets", "pixil-frame-0.png"))
+def refresh(position, model):
+    WINDOW.fill(GREEN)
+    WINDOW.blit(model, (position.x, position.y))
+    WINDOW.blit(TEST_CHAR, (500, 500))
+    pygame.display.update()
+
+def main(): #main function (main loop) of out game
+    global CHARACTER
+    character = pygame.Rect(0, 0, 115, 220)
+    clock = pygame.time.Clock()
+    run = True
+    while run:
+        clock.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+        keys_pressed = pygame.key.get_pressed()
+        key = False
+        if keys_pressed[pygame.K_UP] and character.y >= 0:
+            character.y -= VELOCITY
+        if keys_pressed[pygame.K_DOWN] and character.y <= 720-220:
+            character.y += VELOCITY
+        if keys_pressed[pygame.K_RIGHT] and character.x <= 1280-115:
+            character.x += VELOCITY
+            CHARACTER = CHARACTER_RIGHT
+        if keys_pressed[pygame.K_LEFT] and character.x >= 0:
+            character.x -= VELOCITY
+            CHARACTER = CHARACTER_LEFT
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+        refresh(character, CHARACTER)
 
+    pygame.quit()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-    print("Nice to meet you!")
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__": #checking that function called in the original file
+    main()
