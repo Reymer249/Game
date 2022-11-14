@@ -13,10 +13,10 @@ def movement(VELOCITY, character_rectangle):
 
     return character_rectangle.x, character_rectangle.y
 
-def turn():
+def turn(character):
     keys_pressed = pygame.key.get_pressed()
     if keys_pressed[pygame.K_RIGHT]:
         return CHARACTER_RIGHT_1
     if keys_pressed[pygame.K_LEFT]:
         return CHARACTER_LEFT_1
-    return CHARACTER
+    return character

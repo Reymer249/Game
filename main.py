@@ -1,15 +1,10 @@
-import pygame
-import os
-import sys
-
-from CONSTANTS import *
+import CONSTANTS
 from core.movement_logic import *
 from core.display_logic import *
 
 def main():#main function of our game
 
     #defining variables used in main
-    global CHARACTER
     character_rectangle = pygame.Rect(0, 0, 115, 220)
     clock = pygame.time.Clock()
 
@@ -22,13 +17,13 @@ def main():#main function of our game
             if event.type == pygame.QUIT:
                 run = False
 
-        #refreshing picture
-        refresh(character_rectangle, CHARACTER)
-
         #changing the coordinates using the pygame buttons tracker
         character_rectangle.x, character_rectangle.y = movement(VELOCITY, character_rectangle)
         #changing the model according to where character moves
-        CHARACTER = turn()
+        CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER)
+
+        #refreshing picture
+        refresh(character_rectangle, CONSTANTS.CHARACTER)
 
     pygame.quit()
 
