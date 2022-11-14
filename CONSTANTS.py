@@ -13,6 +13,5 @@ VELOCITY = 5 #velocity of the character
 #background
 GREEN = (0, 229, 0) #the background color
 
-CHARACTER_RIGHT = pygame.image.load(os.path.join("Assets", "guy.webp.png"))#the model of the character
-CHARACTER_LEFT = pygame.image.load(os.path.join("Assets", "guy.webp"))#the model of the character
-CHARACTER = CHARACTER_RIGHT
+#character
+CHARACTER = pygame.image.load(os.path.join("Assets", "guy.webp.png"))#the model of the character
