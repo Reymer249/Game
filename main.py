@@ -5,7 +5,7 @@ from core.display_logic import *
 def main():#main function of our game
 
     #defining variables used in main
-    character_rectangle = pygame.Rect(0, 0, 115, 220)
+    character_rectangle = pygame.Rect(0, 0, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
     clock = pygame.time.Clock()
 
     #main loop of our game
@@ -22,11 +22,12 @@ def main():#main function of our game
         #changing the model according to where character moves
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER)
 
+
         #refreshing picture
         refresh(character_rectangle, CONSTANTS.CHARACTER)
 
     pygame.quit()
 
 #calling the main function
-if __name__ == "__main__": #checking that function called in the original file
+if __name__ == "__main__":
     main()
