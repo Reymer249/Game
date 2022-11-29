@@ -55,3 +55,6 @@ CHARACTER_UP = 0
 CHARACTER_DOWN = 0
 CHARACTER_RIGHT = 0
 CHARACTER_LEFT = 0
+
+# game objects
+DOOR = pygame.image.load(os.path.join("Assets", "objects", "door.png"))
