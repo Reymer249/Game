@@ -1,19 +1,23 @@
 import pygame
 import os
 
-#window
-WIDTH, HEIGHT = 1280, 720 #resolution
-WINDOW = pygame.display.set_mode((WIDTH, HEIGHT)) #applying resolution to the window
-pygame.display.set_caption("Fixit") #the caption that appears at the top of the window
+#  window
+WIDTH, HEIGHT = 1280, 720  # resolution
+WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))  # applying resolution to the window
+pygame.display.set_caption("Fixit")  # the caption that appears at the top of the window
 
-#game flow setting
+#  background image
+BACKGROUND = pygame.image.load(os.path.join("Assets", "background", "background.png"))
+BACKGROUND = pygame.transform.scale(BACKGROUND, (WIDTH, HEIGHT))
+
+#  game flow setting
 FPS = 60
-VELOCITY = 5 #velocity of the character
+VELOCITY = 5  # velocity of the character
 
-#background
+#  background
 GREEN = (0, 229, 0)
 
-#character models
+#  character models
 CHARACTER_FRONT = pygame.image.load(os.path.join("Assets", "character", "front.png"))
 CHARACTER_FRONT_RIGHT = pygame.image.load(os.path.join("Assets", "character", "front-right.png"))
 CHARACTER_FRONT_LEFT = pygame.image.load(os.path.join("Assets", "character", "front-left.png"))
@@ -25,9 +29,12 @@ CHARACTER_LEFT_WALK = pygame.image.load(os.path.join("Assets", "character", "lef
 CHARACTER_RIGHT_STAY = pygame.image.load(os.path.join("Assets", "character", "right-stay.png"))
 CHARACTER_RIGHT_WALK = pygame.image.load(os.path.join("Assets", "character", "right-walk.png"))
 
+
 SCALE_WIDTH, SCALE_HEIGHT = 160, 200
+
 def scale(character):
     return pygame.transform.scale(character, (SCALE_WIDTH, SCALE_HEIGHT))
+
 
 CHARACTER_FRONT = scale(CHARACTER_FRONT)
 CHARACTER_FRONT_RIGHT = scale(CHARACTER_FRONT_RIGHT)
@@ -42,7 +49,7 @@ CHARACTER_RIGHT_WALK = scale(CHARACTER_RIGHT_WALK)
 
 CHARACTER = CHARACTER_FRONT
 
-#moving "constants"
+#  moving "constants"
 PACE = 15
 CHARACTER_UP = 0
 CHARACTER_DOWN = 0
