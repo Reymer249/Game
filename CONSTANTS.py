@@ -14,8 +14,13 @@ BACKGROUND = pygame.transform.scale(BACKGROUND, (WIDTH, HEIGHT))
 FPS = 60
 VELOCITY = 5  # velocity of the character
 
-#  background
+#  colors
 GREEN = (0, 229, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+BLACK = (0, 0, 0)
+SOFT_BLUE = (202, 228, 241)
 
 #  character models
 CHARACTER_FRONT = pygame.image.load(os.path.join("Assets", "character", "front.png"))
@@ -29,8 +34,8 @@ CHARACTER_LEFT_WALK = pygame.image.load(os.path.join("Assets", "character", "lef
 CHARACTER_RIGHT_STAY = pygame.image.load(os.path.join("Assets", "character", "right-stay.png"))
 CHARACTER_RIGHT_WALK = pygame.image.load(os.path.join("Assets", "character", "right-walk.png"))
 
-
 SCALE_WIDTH, SCALE_HEIGHT = 160, 200
+
 
 def scale(character):
     return pygame.transform.scale(character, (SCALE_WIDTH, SCALE_HEIGHT))
@@ -56,5 +61,15 @@ CHARACTER_DOWN = 0
 CHARACTER_RIGHT = 0
 CHARACTER_LEFT = 0
 
-# game objects
-DOOR = pygame.image.load(os.path.join("Assets", "objects", "door.png"))
+# general game objects
+DOOR = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "objects", "door.png")),
+                              (SCALE_WIDTH // 2, SCALE_HEIGHT // 2))
+
+# main menu objects
+BUTTON_WIDTH, BUTTON_HEIGHT = 440, 160
+START_BUTTON = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "main_menu", "start.png")), (BUTTON_WIDTH, BUTTON_HEIGHT))
+EXIT_BUTTON = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "main_menu", "exit.png")), (BUTTON_WIDTH, BUTTON_HEIGHT))
+READ_BUTTON = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "main_menu", "read.png")), (BUTTON_WIDTH, BUTTON_HEIGHT))

@@ -1,7 +1,6 @@
 import pygame
 import CONSTANTS
-def movement(VELOCITY, character_rectangle):
-    keys_pressed = pygame.key.get_pressed()
+def movement(VELOCITY, character_rectangle, keys_pressed):
     if keys_pressed[pygame.K_UP] and character_rectangle.y >= 0:
         character_rectangle.y -= VELOCITY
     if keys_pressed[pygame.K_DOWN] and character_rectangle.y <= CONSTANTS.HEIGHT - CONSTANTS.SCALE_HEIGHT:
@@ -13,8 +12,7 @@ def movement(VELOCITY, character_rectangle):
 
     return character_rectangle.x, character_rectangle.y
 
-def turn(character):
-    keys_pressed = pygame.key.get_pressed()
+def turn(character, keys_pressed):
     if True not in keys_pressed:
         return CONSTANTS.CHARACTER_FRONT
     if keys_pressed[pygame.K_RIGHT]:
