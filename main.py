@@ -1,6 +1,7 @@
 import CONSTANTS
 from core.movement_logic import *
 from core.display_logic import *
+from core.interact_logic import *
 
 
 def main():  # main function of our game
@@ -23,8 +24,9 @@ def main():  # main function of our game
         # changing the model according to where character moves
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER)
 
+        text, color = interact(character_rectangle)
         # refreshing picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color)
 
     pygame.quit()
 
