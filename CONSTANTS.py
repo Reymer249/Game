@@ -73,3 +73,55 @@ EXIT_BUTTON = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", "main_menu", "exit.png")), (BUTTON_WIDTH, BUTTON_HEIGHT))
 READ_BUTTON = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", "main_menu", "read.png")), (BUTTON_WIDTH, BUTTON_HEIGHT))
+
+#level1 assets
+#BLACKBOARD SPRITES
+logic_array_broken = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "logic-array-needfixing.png")), (1030, 380))
+logic_array_fixed = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "logic-array level1 completed.png")), (1030, 380))
+
+
+
+level1_fixed1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "level1_fixed1.png")), (1030, 380))
+level1_fixed2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "level1_fixed2.png")), (1030, 380))
+level1_fixed3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "level1_fixed3.png")), (1030, 380))
+
+level1_fixed1_fixed2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "level1_fixed1_fixed2.png")), (1030, 380))
+
+level1_fixed1_fixed3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "level1_fixed1_fixed3.png")), (1030, 380))
+
+level1_fixed2_fixed3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "level1_fixed2_fixed3.png")), (1030, 380))
+
+
+
+#ANSWER SPRITES
+problem1_correct = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem1-correct.png")), (90, 90))
+problem1_incorrect1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem1-incorrect1.png")), (90, 90))
+problem1_incorrect2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem1-incorrect2.png")), (90, 90))
+
+problem2_correct = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem2-correct.png")), (90, 90))
+problem2_incorrect1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem2-incorrect1.png")), (90, 90))
+problem2_incorrect2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem2-incorrect2.png")), (90, 90))
+problem3_correct = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem3-correct.png")), (90, 90))
+problem3_incorrect1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem3-incorrect1.png")), (90, 90))
+problem3_incorrect2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "problem3-incorrect1.png")), (90, 90))
+
+#TASK TABLE LEVEL 1
+level1_task = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level1", "level1_task.jpg")), (1030, 320))

@@ -37,8 +37,16 @@ def main_menu():
 
 def level1():  # main function of our game
 
+    # I think can generally use this for each level function if it also has 3 problems, if more or less then might need a little tweaking,
+    # I assume if there are less than 3 for others we can just define the fixed_3 as True from the beggining
+
     # defining variables used in main
-    character_rectangle = pygame.Rect(0, 0, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
+    character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
+    mistakes = 0
+    level = 1
+    fixed_1 = False
+    fixed_2 = False
+    fixed_3 = False
     clock = pygame.time.Clock()
 
     # main loop of our game
@@ -59,10 +67,10 @@ def level1():  # main function of our game
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color = interact(character_rectangle, keys_pressed)
+        text, color, fixed_1, fixed_2, fixed_3, mistakes = interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, mistakes)
 
     pygame.quit()
 
