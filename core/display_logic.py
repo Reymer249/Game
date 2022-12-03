@@ -1,7 +1,10 @@
-import pygame
-from CONSTANTS import *
-from core.interact_logic1 import *
+import random
+import time
+from datetime import datetime
 
+import CONSTANTS
+from CONSTANTS import *
+import core.interact_logic as il
 
 def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, mistakes, nxt):
 
@@ -66,22 +69,57 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
             WINDOW.blit(MEM_ARRAY5_FIXED_FULL, (100, 100))
 
     # task (render 3rd)
-    task(keys_pressed, level, mistakes)
+    il.task(keys_pressed, level, mistakes)
 
     # character (render 4rd)
     WINDOW.blit(model, (aimbox.x, aimbox.y))
 
     # objects
-    drawText(text)
+    il.drawText(text)
     if level == 1:
-        interact1(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+        il.interact1(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
     elif level == 5:
-        interact5(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
+        il.interact5(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
 
     if nxt == True:
         WINDOW.blit(DOOR, (WIDTH - SCALE_WIDTH, HEIGHT - SCALE_HEIGHT))
 
     pygame.display.update()
+
+def refreshFinal(aimbox, model, text, option, keys_pressed):
+    # background and character
+    WINDOW.blit(FINAL_BACKGROUND, (0, 0))
+    WINDOW.blit(model, (aimbox.x, aimbox.y))
+
+    new_round = text == "Correct! +1 Point" or text == "Incorrect! Next question!"
+    end = il.question_number >= len(CONSTANTS.QUESTIONS)
+
+    if end:
+        var = 0
+    elif new_round:
+        WINDOW.blit(CONSTANTS.BOSS_WOOSH, (800, 400))
+    else:
+        if datetime.now().microsecond.real > 500000:
+            WINDOW.blit(CONSTANTS.BOSS_RIGHT, (800, 400))
+        else:
+            WINDOW.blit(CONSTANTS.BOSS_LEFT, (800, 400))
+
+    if end:
+        if il.points >= len(list(CONSTANTS.QUESTIONS.keys())) / 2:
+            il.drawText(f"YOU WON WITH {il.points} POINTS!")
+        else:
+            il.drawText(f"YOU LOST WITH {il.points} POINTS!")
+    else:
+        il.drawText(text)
+        il.customDrawText(option, 600, 600)
+        il.nextQuestion()
+        il.interact(aimbox, keys_pressed)
+
+    pygame.display.update()
+
+    if new_round:
+        il.number += 1
+        time.sleep(3)
 
 
 

@@ -3,6 +3,8 @@ import pygame
 import CONSTANTS
 
 from core import menu_logic
+from core.interact_logic import *
+from core.interact_logic import interact
 from core.movement_logic import *
 from core.display_logic import *
 from core.interact_logic_5 import *
@@ -36,10 +38,8 @@ def main_menu():
 
     pygame.quit()
 
-def level1():  # main function of our game
 
-    # I think can generally use this for each level function if it also has 3 problems, if more or less then might need a little tweaking,
-    # I assume if there are less than 3 for others we can just define the fixed_3 as True from the beggining
+def level1():  # main function of our game
 
     # defining variables used in main
     character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
@@ -133,7 +133,38 @@ def level5():
     pygame.quit()
 
 
+def final_level():  # main function of our game
+    # defining variables used in main
+    character_rectangle = pygame.Rect(0, 0, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
+    clock = pygame.time.Clock()
+
+    # main loop of our game
+    run = True
+    while run:
+        clock.tick(FPS)  # function to have stable FPS
+        # checking for x button to quit
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+        # getting the keys pressed
+        keys_pressed = pygame.key.get_pressed()
+
+        # changing the coordinates using the pygame buttons tracker
+        character_rectangle.x, character_rectangle.y = movement(VELOCITY, character_rectangle, keys_pressed)
+        # changing the model according to where character moves
+        CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
+
+        # interaction logic
+        text, option = finalInteract(character_rectangle, keys_pressed)
+
+        # refreshing the picture
+        refreshFinal(character_rectangle, CONSTANTS.CHARACTER, text, option, keys_pressed)
+
+    pygame.quit()
+
+
 
 # calling the main function
 if __name__ == "__main__":
-    level1()
+    main_menu()
