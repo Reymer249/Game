@@ -3,12 +3,33 @@ import CONSTANTS
 from main import *
 from CONSTANTS import *
 from core.movement_logic import *
-from interact_logic import *
+from core.interact_logic1 import *
 
-problem1_level5 = pygame.Rect(303, 145, 30, 30)
-problem2_level5 = pygame.Rect(535, 295, 30, 30)
-problem3_level5 = pygame.Rect(800, 330, 30, 30)
-problem4_level5 = pygame.Rect(200, 330, 30, 30)
+problem1_level5 = pygame.Rect(410, 145, 30, 30)
+problem2_level5 = pygame.Rect(905, 140, 30, 30)
+problem3_level5 = pygame.Rect(690, 310, 30, 30)
+problem4_level5 = pygame.Rect(425, 370, 30, 30)
+
+
+def drawOptions(opt1, opt2, opt3, collide):
+
+    #Draws answer options boxes
+    pygame.draw.rect(WINDOW, WHITE, opt1)
+    pygame.draw.rect(WINDOW, WHITE, opt2)
+    pygame.draw.rect(WINDOW, WHITE, opt3)
+
+    if collide == 1:
+        WINDOW.blit(CONSTANTS.problem1_correct, (550, 600))
+        WINDOW.blit(problem1_incorrect1, (700, 600))
+        WINDOW.blit(problem1_incorrect2, (850, 600))
+    if collide == 2:
+         WINDOW.blit(problem2_incorrect2, (550, 600))
+         WINDOW.blit(problem2_correct, (700, 600))
+         WINDOW.blit(problem2_incorrect1, (850, 600))
+    if collide == 3:
+        WINDOW.blit(problem3_incorrect2, (550, 600))
+        WINDOW.blit(problem3_incorrect1, (700, 600))
+        WINDOW.blit(problem3_correct, (850, 600))
 
 def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes):
 
@@ -19,6 +40,8 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
     collideProblem4 = character_rectangle.colliderect(problem4_level5)
     point = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
+    text = ''
+    color = ''
 
     if level == 5:
         # While not near any problem
@@ -34,20 +57,17 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
 
             if collideProblem1 and keys_pressed[pygame.K_RETURN]: # Pressing enter shows up possible fixes
                 text = 'HMM, It seems the circuit is not fully connected. I wonder fits in here'
-                opt1 = pygame.Rect(550, 600, 100, 100)
-                opt2 = pygame.Rect(700, 600, 100, 100)
-                opt3 = pygame.Rect(850, 600, 100, 100)
-                drawOptions(opt1, opt2, opt3, 1, level) # Draws the answer options
+                drawOptions(CONSTANTS.opt1, CONSTANTS.opt2, CONSTANTS.opt3, 1) # Draws the answer options
 
                 #Mouse over and click on answer
-                collideAnswer1 = opt1.collidepoint(point)
+                collideAnswer1 = CONSTANTS.opt1.collidepoint(point)
                 if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'That seems to be right'
                         fixed_1 = True
 
-                collideAnswer2 = opt2.collidepoint(point)
+                collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -55,7 +75,7 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                         fixed_1 = False
                         mistakes += 1
 
-                collideAnswer3 = opt3.collidepoint(point)
+                collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -73,13 +93,10 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
 
             if collideProblem2 and keys_pressed[pygame.K_RETURN]:
                 text = 'HMM, I need to name this AND gate'
-                opt1 = pygame.Rect(550, 600, 100, 100)
-                opt2 = pygame.Rect(700, 600, 100, 100)
-                opt3 = pygame.Rect(850, 600, 100, 100)
-                drawOptions(opt1, opt2, opt3, 2, level)
+                drawOptions(CONSTANTS.opt1, CONSTANTS.opt2, CONSTANTS.opt3, 2)
 
                 #Mouse over and click on answer
-                collideAnswer1 = opt1.collidepoint(point)
+                collideAnswer1 = CONSTANTS.opt1.collidepoint(point)
                 if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -87,14 +104,14 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                         fixed_2 = False
                         mistakes += 1
 
-                collideAnswer2 = opt2.collidepoint(point)
+                collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'That seems to be right!'
                         fixed_2 = True
 
-                collideAnswer3 = opt3.collidepoint(point)
+                collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -112,13 +129,10 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
 
             if collideProblem3 and keys_pressed[pygame.K_RETURN]: # Pressing enter shows up possible fixes
                 text = 'HMM, I need to name this OR gate'
-                opt1 = pygame.Rect(550, 600, 100, 100)
-                opt2 = pygame.Rect(700, 600, 100, 100)
-                opt3 = pygame.Rect(850, 600, 100, 100)
-                drawOptions(opt1, opt2, opt3, 3, level)
+                drawOptions(CONSTANTS.opt1, CONSTANTS.opt2, CONSTANTS.opt3, 3)
 
                 #Mouse over and click on answer
-                collideAnswer1 = opt1.collidepoint(point)
+                collideAnswer1 = CONSTANTS.opt1.collidepoint(point)
                 if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -126,7 +140,7 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                         fixed_3 = False
                         mistakes += 1
 
-                collideAnswer2 = opt2.collidepoint(point)
+                collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -134,7 +148,7 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                         fixed_3 = False
                         mistakes += 1
 
-                collideAnswer3 = opt3.collidepoint(point)
+                collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -150,13 +164,10 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
 
             if collideProblem4 and keys_pressed[pygame.K_RETURN]: # Pressing enter shows up possible fixes
                 text = 'HMM, I need to name this OR gate'
-                opt1 = pygame.Rect(550, 600, 100, 100)
-                opt2 = pygame.Rect(700, 600, 100, 100)
-                opt3 = pygame.Rect(850, 600, 100, 100)
-                drawOptions(opt1, opt2, opt3, 3, level)
+                drawOptions(CONSTANTS.opt1, CONSTANTS.opt2, CONSTANTS.opt3, 4)
 
                 #Mouse over and click on answer
-                collideAnswer1 = opt1.collidepoint(point)
+                collideAnswer1 = CONSTANTS.opt1.collidepoint(point)
                 if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -164,7 +175,7 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                         fixed_3 = False
                         mistakes += 1
 
-                collideAnswer2 = opt2.collidepoint(point)
+                collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
@@ -172,7 +183,7 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                         fixed_3 = False
                         mistakes += 1
 
-                collideAnswer3 = opt3.collidepoint(point)
+                collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
                     text = 'Could this possibly fix it?'
                     if click[0]:

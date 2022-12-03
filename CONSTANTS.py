@@ -63,7 +63,11 @@ CHARACTER_LEFT = 0
 
 # general game objects
 DOOR = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "objects", "door.png")),
-                              (SCALE_WIDTH // 2, SCALE_HEIGHT // 2))
+                              (SCALE_WIDTH, SCALE_HEIGHT))
+DOOR_RECT = pygame.Rect(WIDTH-SCALE_WIDTH, HEIGHT-SCALE_HEIGHT, WIDTH, HEIGHT)
+opt1 = pygame.Rect(550, 600, 100, 100)
+opt2 = pygame.Rect(700, 600, 100, 100)
+opt3 = pygame.Rect(850, 600, 100, 100)
 
 # main menu objects
 BUTTON_WIDTH, BUTTON_HEIGHT = 440, 160

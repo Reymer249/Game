@@ -1,9 +1,9 @@
 import pygame
 from CONSTANTS import *
-from core.interact_logic import *
+from core.interact_logic1 import *
 
 
-def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, mistakes):
+def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, mistakes, nxt):
 
 
     # background (render 1st)
@@ -73,7 +73,13 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
 
     # objects
     drawText(text)
-    interact1(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+    if level == 1:
+        interact1(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+    elif level == 5:
+        interact5(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
+
+    if nxt == True:
+        WINDOW.blit(DOOR, (WIDTH - SCALE_WIDTH, HEIGHT - SCALE_HEIGHT))
 
     pygame.display.update()
 
