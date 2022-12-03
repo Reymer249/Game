@@ -14,8 +14,10 @@ text_box_size = (10, 600, 500, 100)
 
 simulator_rect = pygame.Rect(200, 125, 30, 30)
 
+
 def drawObject(color):
     pygame.draw.rect(WINDOW, color, simulator_rect)
+
 
 def drawOptions(opt1, opt2, opt3):
 
@@ -28,13 +30,12 @@ def drawText(text):
     # drawing the  text box
     text_box = pygame.Rect(text_box_size)
     pygame.draw.rect(WINDOW, WHITE, text_box)
-    pygame.draw.rect(WINDOW, BLACK, (10, 595, 500, 5)) # Top border
-    pygame.draw.rect(WINDOW, BLACK, (5, 600, 5, 100)) # Left border
-    pygame.draw.rect(WINDOW, BLACK, (510, 600, 5, 100)) # Right border
-    pygame.draw.rect(WINDOW, BLACK, (10, 700, 500, 5)) # Bottom border
+    pygame.draw.rect(WINDOW, BLACK, (10, 595, 500, 5))  # Top border
+    pygame.draw.rect(WINDOW, BLACK, (5, 600, 5, 100))  # Left border
+    pygame.draw.rect(WINDOW, BLACK, (510, 600, 5, 100))  # Right border
+    pygame.draw.rect(WINDOW, BLACK, (10, 700, 500, 5))  # Bottom border
 
-
-    #Displays text within the text box borders
+    # Displays text within the text box borders
     bkg = None
     y = text_box.top
     lineSpacing = -2
@@ -58,7 +59,6 @@ def drawText(text):
         text = text[i:]
 
 
-
 def interact(character_rectangle, keys_pressed):
     collideProblem = character_rectangle.colliderect(simulator_rect)
     point = pygame.mouse.get_pos()
@@ -70,7 +70,7 @@ def interact(character_rectangle, keys_pressed):
         color = RED
         text = "Hmm, something's off! It's seems that there is a part missing!"
 
-    if collideProblem and  keys_pressed[pygame.K_RETURN]:
+    if collideProblem and keys_pressed[pygame.K_RETURN]:
         text = 'EXPLAINING THE PROBLEM (LALALA THIS AND THAT)'
         opt1 = pygame.Rect(550, 600, 100, 100)
         opt2 = pygame.Rect(700, 600, 100, 100)
@@ -88,8 +88,6 @@ def interact(character_rectangle, keys_pressed):
         collideAnswer3 = opt3.collidepoint(point)
         if collideAnswer3:
             text = 'HMM, Possibly (Explain this answer) OPT 3'
-
-
 
     else:
         object_coordinates = (200, 125, 30, 30)
