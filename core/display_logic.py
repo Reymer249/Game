@@ -32,24 +32,15 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
 
     # Other levels
 
-
-
-
-
     # task (render 3rd)
     task(keys_pressed, level, mistakes)
 
     # character (render 4rd)
     WINDOW.blit(model, (aimbox.x, aimbox.y))
 
-
-
     # objects
     drawText(text)
     interact1(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
-
-
-
 
     pygame.display.update()
 

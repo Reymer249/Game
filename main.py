@@ -74,6 +74,42 @@ def level1():  # main function of our game
 
     pygame.quit()
 
+def level5():
+    # defining variables used in main
+    character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
+    mistakes = 0
+    level = 5
+    fixed_1 = False
+    fixed_2 = False
+    fixed_3 = False
+    clock = pygame.time.Clock()
+
+    # main loop of our game
+    run = True
+    while run:
+        clock.tick(FPS)  # function to have stable FPS
+        # checking for x button to quit
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+        # getting the keys pressed
+        keys_pressed = pygame.key.get_pressed()
+
+        # changing the coordinates using the pygame buttons tracker
+        character_rectangle.x, character_rectangle.y = movement(VELOCITY, character_rectangle, keys_pressed)
+        # changing the model according to where character moves
+        CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
+
+        # interaction logic
+        text, color, fixed_1, fixed_2, fixed_3, mistakes = interact1(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+
+        # refreshing the picture
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, mistakes)
+
+    pygame.quit()
+
+
 
 # calling the main function
 if __name__ == "__main__":
