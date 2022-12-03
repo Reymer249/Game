@@ -5,6 +5,7 @@ import CONSTANTS
 from core import menu_logic
 from core.movement_logic import *
 from core.display_logic import *
+from core.interact_logic_5 import *
 
 
 def main_menu():
@@ -47,6 +48,7 @@ def level1():  # main function of our game
     fixed_1 = False
     fixed_2 = False
     fixed_3 = False
+    fixed_4 = True
     clock = pygame.time.Clock()
 
     # main loop of our game
@@ -70,7 +72,7 @@ def level1():  # main function of our game
         text, color, fixed_1, fixed_2, fixed_3, mistakes = interact1(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, mistakes)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, mistakes)
 
     pygame.quit()
 
@@ -82,6 +84,7 @@ def level5():
     fixed_1 = False
     fixed_2 = False
     fixed_3 = False
+    fixed_4 = False
     clock = pygame.time.Clock()
 
     # main loop of our game
@@ -102,10 +105,10 @@ def level5():
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, mistakes = interact1(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, mistakes = interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, mistakes)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, mistakes)
 
     pygame.quit()
 
@@ -113,4 +116,4 @@ def level5():
 
 # calling the main function
 if __name__ == "__main__":
-    main_menu()
+    level5()

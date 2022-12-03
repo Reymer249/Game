@@ -125,3 +125,41 @@ problem3_incorrect2 = pygame.transform.scale(
 #TASK TABLE LEVEL 1
 level1_task = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", "level1", "level1_task.jpg")), (1030, 320))
+
+#level5 assets
+MEM_ARRAY5_BROKEN = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_not_fixed.png")), (1030, 320))
+MEM_ARRAY5_FIXED_FULL = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_fixed.png")), (1030, 320))
+MEM_ARRAY5_FIXED_1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_1_1.png")), (1030, 320))
+MEM_ARRAY5_FIXED_2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_1_2.png")), (1030, 320))
+MEM_ARRAY5_FIXED_1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_1_1.png")), (1030, 320))
+MEM_ARRAY5_FIXED_2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_1_2.png")), (1030, 320))
+MEM_ARRAY5_FIXED_3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_1_3.png")), (1030, 320))
+MEM_ARRAY5_FIXED_4 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_1_4.png")), (1030, 320))
+MEM_ARRAY5_FIXED_34 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_2_1.png")), (1030, 320))
+MEM_ARRAY5_FIXED_24 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_2_2.png")), (1030, 320))
+MEM_ARRAY5_FIXED_14 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_2_3.png")), (1030, 320))
+MEM_ARRAY5_FIXED_12 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_2_4.png")), (1030, 320))
+MEM_ARRAY5_FIXED_13 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_2_5.png")), (1030, 320))
+MEM_ARRAY5_FIXED_23 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_2_6.png")), (1030, 320))
+MEM_ARRAY5_FIXED_234 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_3_1.png")), (1030, 320))
+MEM_ARRAY5_FIXED_123 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_3_2.png")), (1030, 320))
+MEM_ARRAY5_FIXED_124 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_3_3.png")), (1030, 320))
+MEM_ARRAY5_FIXED_134 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_3_4.png")), (1030, 320))
