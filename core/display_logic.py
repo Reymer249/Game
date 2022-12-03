@@ -46,7 +46,7 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
 
     # objects
     drawText(text)
-    interact(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+    interact1(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
 
 
 

@@ -67,7 +67,7 @@ def level1():  # main function of our game
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, mistakes = interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, mistakes = interact1(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
 
         # refreshing the picture
         refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, mistakes)

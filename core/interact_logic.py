@@ -95,7 +95,7 @@ def drawText(text):
 
 
 
-def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes):
+def interact1(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes):
 
     #Detects collison with the invisible squares
     collideProblem1 = character_rectangle.colliderect(problem1_level1)
@@ -125,14 +125,14 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
 
                 #Mouse over and click on answer
                 collideAnswer1 = opt1.collidepoint(point)
-                if collideAnswer1 and not fixed_1:
+                if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'That seems to be right'
                         fixed_1 = True
 
                 collideAnswer2 = opt2.collidepoint(point)
-                if collideAnswer2 and not fixed_1:
+                if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
@@ -140,7 +140,7 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
                         mistakes += 1
 
                 collideAnswer3 = opt3.collidepoint(point)
-                if collideAnswer3 and not fixed_1:
+                if collideAnswer3:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
@@ -164,7 +164,7 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
 
                 #Mouse over and click on answer
                 collideAnswer1 = opt1.collidepoint(point)
-                if collideAnswer1 and not fixed_2:
+                if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
@@ -172,14 +172,14 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
                         mistakes += 1
 
                 collideAnswer2 = opt2.collidepoint(point)
-                if collideAnswer2 and not fixed_2:
+                if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'That seems to be right!'
                         fixed_2 = True
 
                 collideAnswer3 = opt3.collidepoint(point)
-                if collideAnswer3 and not fixed_3:
+                if collideAnswer3:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
@@ -188,10 +188,6 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
 
         # Once problem 2 is fixed
         elif collideProblem2 and fixed_2:
-            text = 'Fixed!'
-
-                # Once problem is fixed
-        elif collideProblem1 and fixed_1:
             text = 'Fixed!'
 
         # Problem 3
@@ -207,7 +203,7 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
 
                 #Mouse over and click on answer
                 collideAnswer1 = opt1.collidepoint(point)
-                if collideAnswer1 and not fixed_3:
+                if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
@@ -215,7 +211,7 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
                         mistakes += 1
 
                 collideAnswer2 = opt2.collidepoint(point)
-                if collideAnswer2 and not fixed_3:
+                if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
@@ -223,7 +219,7 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
                         mistakes += 1
 
                 collideAnswer3 = opt3.collidepoint(point)
-                if collideAnswer3 and not fixed_3:
+                if collideAnswer3:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'That seems to be right!'
@@ -237,12 +233,8 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level
         if fixed_1 and fixed_2 and fixed_3:
             text = "HA! I've done it!"
 
-        # Other levels (I guess can copy the code and just change the level at top, text to whatever necessary, changing the location of the correct answer so it's not always option B
-
-
-
-
-
+        # Other levels (I guess can copy the code and just change the level at top,
+        # text to whatever necessary, changing the location of the correct answer so it's not always option B
 
     return text, color, fixed_1, fixed_2, fixed_3, mistakes
 
@@ -274,11 +266,6 @@ def task(keys_pressed, level, mistakes):
             #Could add a grade in the end, once the level is completed. Take the mistakes and calcuate the grade and assign it A B C D F and write it on the task white page
 
             # Other levels
-
-
-
-
-
 
     # Draws the task box on so that it is on top of the white page
     pygame.draw.rect(WINDOW, WHITE, box_coordinates)
