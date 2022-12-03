@@ -76,9 +76,12 @@ CHARACTER_LEFT = 0
 DOOR = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "objects", "door.png")),
                               (SCALE_WIDTH, SCALE_HEIGHT))
 DOOR_RECT = pygame.Rect(WIDTH-SCALE_WIDTH, HEIGHT-SCALE_HEIGHT, WIDTH, HEIGHT)
-opt1 = pygame.Rect(550, 600, 100, 100)
-opt2 = pygame.Rect(700, 600, 100, 100)
-opt3 = pygame.Rect(850, 600, 100, 100)
+CORD_OPT1 = (550, 600)
+CORD_OPT2 = (700, 600)
+CORD_OPT3 = (850, 600)
+opt1 = pygame.Rect(550, 600, 90, 90)
+opt2 = pygame.Rect(700, 600, 90, 90)
+opt3 = pygame.Rect(850, 600, 90, 90)
 
 # main menu objects
 BUTTON_WIDTH, BUTTON_HEIGHT = 440, 160
@@ -178,6 +181,70 @@ MEM_ARRAY5_FIXED_124 = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_3_3.png")), (1030, 320))
 MEM_ARRAY5_FIXED_134 = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_3_4.png")), (1030, 320))
+
+# OPTIONS SPRITES
+OPTION5_1_1 = pygame.image.load(os.path.join("Assets", "level5", "5_options_1_1.png"))
+OPTION5_1_2 = pygame.image.load(os.path.join("Assets", "level5", "5_options_1_2.png"))
+OPTION5_1_3 = pygame.image.load(os.path.join("Assets", "level5", "5_options_1_3.png"))
+OPTION5_2_1 = pygame.image.load(os.path.join("Assets", "level5", "5_options_2_1.png"))
+OPTION5_2_2 = pygame.image.load(os.path.join("Assets", "level5", "5_options_2_2.png"))
+OPTION5_2_3 = pygame.image.load(os.path.join("Assets", "level5", "5_options_2_3.png"))
+OPTION5_3_1 = pygame.image.load(os.path.join("Assets", "level5", "5_options_3_1.png"))
+OPTION5_3_2 = pygame.image.load(os.path.join("Assets", "level5", "5_options_3_2.png"))
+OPTION5_3_3 = pygame.image.load(os.path.join("Assets", "level5", "5_options_3_3.png"))
+OPTION5_4_1 = pygame.image.load(os.path.join("Assets", "level5", "5_options_4_1.png"))
+OPTION5_4_2 = pygame.image.load(os.path.join("Assets", "level5", "5_options_4_2.png"))
+OPTION5_4_3 = pygame.image.load(os.path.join("Assets", "level5", "5_options_4_3.png"))
+
+# level6 assets
+# BLACKBOARD SPRITES
+MEM_ARRAY6_BROKEN = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_not_fixed.png")), (1030, 320))
+MEM_ARRAY6_FIXED_FULL = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_fixed.png")), (1030, 320))
+MEM_ARRAY6_FIXED_1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_1_1.png")), (1030, 320))
+MEM_ARRAY6_FIXED_2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_1_2.png")), (1030, 320))
+MEM_ARRAY6_FIXED_3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_1_3.png")), (1030, 320))
+MEM_ARRAY6_FIXED_4 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_1_4.png")), (1030, 320))
+MEM_ARRAY6_FIXED_12 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_2_6.png")), (1030, 320))
+MEM_ARRAY6_FIXED_13 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_2_5.png")), (1030, 320))
+MEM_ARRAY6_FIXED_14 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_2_2.png")), (1030, 320))
+MEM_ARRAY6_FIXED_23 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_2_4.png")), (1030, 320))
+MEM_ARRAY6_FIXED_24 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_2_3.png")), (1030, 320))
+MEM_ARRAY6_FIXED_34 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_2_1.png")), (1030, 320))
+MEM_ARRAY6_FIXED_123 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_3_1.png")), (1030, 320))
+MEM_ARRAY6_FIXED_124 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_3_2.png")), (1030, 320))
+MEM_ARRAY6_FIXED_134 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_3_3.png")), (1030, 320))
+MEM_ARRAY6_FIXED_234 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level6", "lvl_6_3_4.png")), (1030, 320))
+
+#OPTIONS SPRITES
+OPTION6_1_1 = pygame.image.load(os.path.join("Assets", "level6", "6_options_1_1.png"))
+OPTION6_1_2 = pygame.image.load(os.path.join("Assets", "level6", "6_options_1_2.png"))
+OPTION6_1_3 = pygame.image.load(os.path.join("Assets", "level6", "6_options_1_3.png"))
+OPTION6_2_1 = pygame.image.load(os.path.join("Assets", "level6", "6_options_2_1.png"))
+OPTION6_2_2 = pygame.image.load(os.path.join("Assets", "level6", "6_options_2_2.png"))
+OPTION6_2_3 = pygame.image.load(os.path.join("Assets", "level6", "6_options_2_3.png"))
+OPTION6_3_1 = pygame.image.load(os.path.join("Assets", "level6", "6_options_3_1.png"))
+OPTION6_3_2 = pygame.image.load(os.path.join("Assets", "level6", "6_options_3_2.png"))
+OPTION6_3_3 = pygame.image.load(os.path.join("Assets", "level6", "6_options_3_3.png"))
+OPTION6_4_1 = pygame.image.load(os.path.join("Assets", "level6", "6_options_4_1.png"))
+OPTION6_4_2 = pygame.image.load(os.path.join("Assets", "level6", "6_options_4_2.png"))
+OPTION6_4_3 = pygame.image.load(os.path.join("Assets", "level6", "6_options_4_3.png"))
+
 
 QUESTIONS = {("SRAMS are faster than DRAMS", "True", "False", "Depends on the task"): 1,
              ("PROMs are more expensive than EPROMs and EEPOMs", "True", "False", "They are the same price"): 2,

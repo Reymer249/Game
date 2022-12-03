@@ -8,7 +8,7 @@ from core.interact_logic import interact
 from core.movement_logic import *
 from core.display_logic import *
 from core.interact_logic_5 import *
-
+from core.interact_logic_6 import *
 
 def main_menu():
     # defining variables used in main
@@ -132,6 +132,51 @@ def level5():
 
     pygame.quit()
 
+def level6():
+    # defining variables used in main
+    character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
+    mistakes = 0
+    level = 6
+    fixed_1 = False
+    fixed_2 = False
+    fixed_3 = False
+    fixed_4 = False
+    nxt = False
+    text = ''
+    color = ''
+    clock = pygame.time.Clock()
+
+    # main loop of our game
+    run = True
+    while run:
+        clock.tick(FPS)  # function to have stable FPS
+        # checking for x button to quit
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+        # getting the keys pressed
+        keys_pressed = pygame.key.get_pressed()
+
+        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
+            main_menu()
+
+        if fixed_1 and fixed_2 and fixed_3 and fixed_4:
+            nxt = True
+
+        # changing the coordinates using the pygame buttons tracker
+        character_rectangle.x, character_rectangle.y = movement(VELOCITY, character_rectangle, keys_pressed)
+        # changing the model according to where character moves
+        CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
+
+        # interaction logic
+        text, color, fixed_1, fixed_2, fixed_3, mistakes = interact6(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
+
+        # refreshing the picture
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, mistakes, nxt)
+        print(character_rectangle.x, character_rectangle.y)
+
+    pygame.quit()
 
 def final_level():  # main function of our game
     # defining variables used in main
@@ -167,4 +212,4 @@ def final_level():  # main function of our game
 
 # calling the main function
 if __name__ == "__main__":
-    main_menu()
+    level6()
