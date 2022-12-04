@@ -145,7 +145,7 @@ def level2():  # main function of our game
         refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
-            level2()
+            level5()
 
     pygame.quit()
 
@@ -250,7 +250,8 @@ def level6():
 
         # refreshing the picture
         refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
-        print(fixed_1, fixed_2, fixed_3, fixed_4)
+        if nxt == True and character_rectangle.colliderect(DOOR_RECT):
+            final_level()
 
     pygame.quit()
 
@@ -288,4 +289,4 @@ def final_level():  # main function of our game
 
 # calling the main function
 if __name__ == "__main__":
-    level2()
+    main_menu(1)
