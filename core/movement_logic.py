@@ -55,4 +55,4 @@ def turn(character, keys_pressed):
             CONSTANTS.CHARACTER_DOWN = 0
             return CONSTANTS.CHARACTER_FRONT_LEFT
 
-    return character
+    return CONSTANTS.CHARACTER_FRONT
