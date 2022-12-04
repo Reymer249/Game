@@ -177,23 +177,23 @@ def interact6(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
-                        fixed_3 = False
+                        fixed_4 = False
                         mistakes += 1
 
                 collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
-                        fixed_3 = False
-                        mistakes += 1
+                        text = 'That seems to be right!'
+                        fixed_4 = True
 
                 collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
                     text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'That seems to be right!'
-                        fixed_3 = True
+                        text = 'Nope, that does not seem right!'
+                        fixed_4 = False
+                        mistakes += 1
 
         # Once problem 3 is fixed
         elif collideProblem4 and fixed_4:
@@ -204,4 +204,4 @@ def interact6(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
         if fixed_1 and fixed_2 and fixed_3 and fixed_4:
             text = "HA! I've done it!"
 
-    return text, color, fixed_1, fixed_2, fixed_3, mistakes
+    return text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes

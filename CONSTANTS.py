@@ -117,6 +117,53 @@ level1_fixed1_fixed3 = pygame.transform.scale(
 level1_fixed2_fixed3 = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", "level1", "level1_fixed2_fixed3.png")), (1030, 380))
 
+#level2 assets
+#BLACKBOARD SPRITES
+level2_part1_completed = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1 completed.png")), (500, 400))
+level2_part1_broken = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1 broken.png")), (500, 400))
+
+level2_part1_fixed1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_fixed1.png")), (500, 400))
+level2_part1_fixed2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_fixed2.png")), (500, 400))
+level2_part1_fixed3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_fixed3.png")), (500, 400))
+level2_part1_fixed1_fixed2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_fixed1_fixed2.png")), (500, 400))
+level2_part1_fixed1_fixed3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_fixed1_fixed3.png")), (500, 400))
+level2_part1_fixed2_fixed3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_fixed2_fixed3.png")), (500, 400))
+
+level2_part2_fixed1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_fixed1.png")), (100, 100))
+level2_part2_fixed2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_fixed2.png")), (100, 100))
+level2_part2_fixed3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_fixed3.png")), (100, 100))
+level2_part2_1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_1.png")), (100, 100))
+level2_part2_2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_2.png")), (100, 100))
+level2_part2_3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_3.png")), (100, 100))
+
+#ANSWER SPRITES
+level2_part1_opt1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_opt1.png")), (90, 90))
+level2_part1_opt2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_opt2.png")), (90, 90))
+level2_part1_opt3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part1_opt3.png")), (90, 90))
+
+level2_part2_opt1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_opt1.png")), (90, 90))
+level2_part2_opt2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_opt2.png")), (90, 90))
+level2_part2_opt3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", "level2", "level2_part2_opt3.png")), (90, 90))
 
 
 #ANSWER SPRITES

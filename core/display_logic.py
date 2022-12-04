@@ -93,7 +93,7 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
             WINDOW.blit(MEM_ARRAY6_FIXED_24, (100, 100))
         if not fixed_1 and not fixed_2 and fixed_3 and fixed_4:
             WINDOW.blit(MEM_ARRAY6_FIXED_34, (100, 100))
-        if not fixed_1 and  fixed_2 and fixed_3 and not fixed_4:
+        if fixed_1 and  fixed_2 and fixed_3 and not fixed_4:
             WINDOW.blit(MEM_ARRAY6_FIXED_123, (100, 100))
         if fixed_1 and fixed_2 and not fixed_3 and fixed_4:
             WINDOW.blit(MEM_ARRAY6_FIXED_124, (100, 100))
