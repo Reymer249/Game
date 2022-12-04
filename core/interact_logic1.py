@@ -7,7 +7,7 @@ from core.movement_logic import *
 pygame.init()
 
 text_font = pygame.font.SysFont(None, 30)
-text_font_big = pygame.font.SysFont(None, 70)
+text_font_big = pygame.font.SysFont(None, 40)
 
 text_box_size = (10, 600, 500, 100)
 
@@ -526,8 +526,11 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed
 
 
         # Once all the problems are fixed
-        #if fixed_1 and fixed_2 and fixed_3 and fixed_4 and fixed_5 and fixed_6:
-            #Next Level
+        if fixed_1 and fixed_2 and fixed_3 and fixed_4 and fixed_5 and fixed_6:
+            if level == 1:
+                text = "Ha, I have done it!"
+            else:
+                text = "Yaaaaahoooooo!!!"
 
 
     return text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes
@@ -537,7 +540,7 @@ def task(keys_pressed, level, mistakes):
     click = pygame.mouse.get_pressed()
     #print(point)
 
-    mistake_count = str(mistakes)
+    mistake_count = "Points lost: " + str(mistakes)
 
 
     # Task box and collision
@@ -553,7 +556,7 @@ def task(keys_pressed, level, mistakes):
             task_description = text_font.render("Fix the circuit diagram such that it realizes the given diagram. ", True, BLACK,)
             hint1 = text_font.render('F1 = AB’C’ + ABC’ + ABC', True, BLACK)
             hint2 = text_font.render('F2 = A’BC + AB’C + ABC', True, BLACK)
-            mistake_text = text_font_big.render("Mistakes: "+mistake_count, True, RED)
+            mistake_text = text_font_big.render(mistake_count, True, RED)
             WINDOW.blit(mistake_text, (830, 430)) # Currently there is a problem cause it keeps adding +1 to mistake counts if mouse button is pressed down, so often it will add more than one :/
             WINDOW.blit(task_description, (65, 370))
             WINDOW.blit(hint1, (65, 410))
@@ -570,7 +573,7 @@ def task(keys_pressed, level, mistakes):
             hint2 = text_font.render('They have high power consumption and programmers do not have any control over power optimization and', True, BLACK)
             hint3 = text_font.render("the programming of FPGA is not as simple as C programming.", True, BLACK)
             task_do = text_font.render("Choose the correct options to build a functional FPGA on the blackboard!", True, BLACK)
-            mistake_text = text_font_big.render("Mistakes: "+mistake_count, True, RED)
+            mistake_text = text_font_big.render(mistake_count, True, RED)
             WINDOW.blit(mistake_text, (830, 430)) # Currently there is a problem cause it keeps adding +1 to mistake counts if mouse button is pressed down, so often it will add more than one :/
             WINDOW.blit(task_description, (65, 100))
             WINDOW.blit(task_description1, (65, 140))

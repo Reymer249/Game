@@ -202,6 +202,6 @@ def interact6(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
 
         # Once all the problems are fixed
         if fixed_1 and fixed_2 and fixed_3 and fixed_4:
-            text = "HA! I've done it!"
+                text = "HA, I have done it!"
 
     return text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes

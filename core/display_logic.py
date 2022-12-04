@@ -5,10 +5,11 @@ from datetime import datetime
 import CONSTANTS
 from CONSTANTS import *
 import core.interact_logic as il
-from core.interact_logic1 import *
+import core.interact_logic1 as il1
 from core.interact_logic_5 import *
+import core.interact_logic_6 as il6
 
-def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, mistakes, nxt):
+def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4,fixed_5, fixed_6, mistakes, nxt):
 
 
     # background (render 1st)
@@ -36,6 +37,40 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
             WINDOW.blit(logic_array_fixed, (100, 100))
 
     # Other levels
+    if level == 2:
+
+        if not fixed_1 and not fixed_2 and not fixed_3:
+            WINDOW.blit(level2_part1_broken, (75, 75))
+        if fixed_1 and not fixed_2 and not fixed_3:
+            WINDOW.blit(level2_part1_fixed1, (75, 75))
+        if not fixed_1 and fixed_2 and not fixed_3:
+            WINDOW.blit(level2_part1_fixed2, (75, 75))
+        if not fixed_1 and not fixed_2 and fixed_3:
+            WINDOW.blit(level2_part1_fixed3, (75, 75))
+        if fixed_1 and fixed_2 and not fixed_3:
+            WINDOW.blit(level2_part1_fixed1_fixed2, (75, 75))
+        if fixed_1 and not fixed_2 and fixed_3:
+            WINDOW.blit(level2_part1_fixed1_fixed3, (75, 75))
+        if not fixed_1 and fixed_2 and fixed_3:
+            WINDOW.blit(level2_part1_fixed2_fixed3, (75, 75))
+        elif fixed_1 and fixed_2 and fixed_3:
+            WINDOW.blit(level2_part1_completed, (75, 75))
+
+        if not fixed_4:
+            WINDOW.blit(level2_part2_1, (735, 90))
+        else:
+            WINDOW.blit(level2_part2_fixed1, (735, 90))
+
+        if not fixed_5:
+            WINDOW.blit(level2_part2_2, (735, 230))
+        else:
+            WINDOW.blit(level2_part2_fixed2, (735, 230))
+
+        if not fixed_6:
+            WINDOW.blit(level2_part2_3, (735, 365))
+        else:
+            WINDOW.blit(level2_part2_fixed3, (735, 365))
+
     if level == 5:
         if not fixed_1 and not fixed_2 and not fixed_3 and not fixed_4:
             WINDOW.blit(MEM_ARRAY5_BROKEN, (100, 100))
@@ -59,7 +94,7 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
             WINDOW.blit(MEM_ARRAY5_FIXED_24, (100, 100))
         if not fixed_1 and not fixed_2 and fixed_3 and fixed_4:
             WINDOW.blit(MEM_ARRAY5_FIXED_34, (100, 100))
-        if not fixed_1 and  fixed_2 and fixed_3 and not fixed_4:
+        if fixed_1 and fixed_2 and fixed_3 and not fixed_4:
             WINDOW.blit(MEM_ARRAY5_FIXED_123, (100, 100))
         if fixed_1 and fixed_2 and not fixed_3 and fixed_4:
             WINDOW.blit(MEM_ARRAY5_FIXED_124, (100, 100))
@@ -105,7 +140,7 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
             WINDOW.blit(MEM_ARRAY5_FIXED_FULL, (100, 100))
 
     # task (render 3rd)
-    task(keys_pressed, level, mistakes)
+    il1.task(keys_pressed, level, mistakes)
 
     # character (render 4rd)
     WINDOW.blit(model, (aimbox.x, aimbox.y))
@@ -113,11 +148,13 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
     # objects
     il.drawText(text)
     if level == 1:
-        interact1(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+        il1.interact(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, mistakes)
+    elif level == 2:
+        il1.interact(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, mistakes)
     elif level == 5:
         interact5(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
     elif level == 6:
-        interact6(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
+        il6.interact6(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
 
     if nxt == True:
         WINDOW.blit(DOOR, (WIDTH - SCALE_WIDTH, HEIGHT - SCALE_HEIGHT))

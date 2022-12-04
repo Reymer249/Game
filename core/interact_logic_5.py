@@ -19,17 +19,21 @@ def drawOptions(opt1, opt2, opt3, collide):
     pygame.draw.rect(WINDOW, WHITE, opt3)
 
     if collide == 1:
-        WINDOW.blit(CONSTANTS.problem1_correct, (550, 600))
-        WINDOW.blit(problem1_incorrect1, (700, 600))
-        WINDOW.blit(problem1_incorrect2, (850, 600))
+        WINDOW.blit(OPTION5_1_1, CORD_OPT1)
+        WINDOW.blit(OPTION5_1_2, CORD_OPT2)
+        WINDOW.blit(OPTION5_1_3, CORD_OPT3)
     if collide == 2:
-         WINDOW.blit(problem2_incorrect2, (550, 600))
-         WINDOW.blit(problem2_correct, (700, 600))
-         WINDOW.blit(problem2_incorrect1, (850, 600))
+         WINDOW.blit(OPTION5_4_1, CORD_OPT1)
+         WINDOW.blit(OPTION5_4_2, CORD_OPT2)
+         WINDOW.blit(OPTION5_4_3, CORD_OPT3)
     if collide == 3:
-        WINDOW.blit(problem3_incorrect2, (550, 600))
-        WINDOW.blit(problem3_incorrect1, (700, 600))
-        WINDOW.blit(problem3_correct, (850, 600))
+        WINDOW.blit(OPTION5_3_1, CORD_OPT1)
+        WINDOW.blit(OPTION5_3_2, CORD_OPT2)
+        WINDOW.blit(OPTION5_3_3, CORD_OPT3)
+    if collide == 4:
+        WINDOW.blit(OPTION5_2_1, CORD_OPT1)
+        WINDOW.blit(OPTION5_2_2, CORD_OPT2)
+        WINDOW.blit(OPTION5_2_3, CORD_OPT3)
 
 def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes):
 
@@ -64,16 +68,16 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                 if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'That seems to be right'
-                        fixed_1 = True
+                        text = 'Nope, that does not seem right!'
+                        fixed_1 = False
+                        mistakes += 1
 
                 collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
-                        fixed_1 = False
-                        mistakes += 1
+                        text = 'That seems to be right'
+                        fixed_1 = True
 
                 collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
@@ -96,8 +100,8 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                 drawOptions(CONSTANTS.opt1, CONSTANTS.opt2, CONSTANTS.opt3, 2)
 
                 #Mouse over and click on answer
-                collideAnswer1 = CONSTANTS.opt1.collidepoint(point)
-                if collideAnswer1:
+                collideAnswer2 = CONSTANTS.opt1.collidepoint(point)
+                if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
@@ -108,16 +112,16 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'That seems to be right!'
-                        fixed_2 = True
-
-                collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
-                if collideAnswer3:
-                    text = 'Could this possibly fix it?'
-                    if click[0]:
                         text = 'Nope, that does not seem right!'
                         fixed_2 = False
                         mistakes += 1
+
+                collideAnswer2 = CONSTANTS.opt3.collidepoint(point)
+                if collideAnswer2:
+                    text = 'Could this possibly fix it?'
+                    if click[0]:
+                        text = 'That seems to be right!'
+                        fixed_2 = True
 
         # Once problem 2 is fixed
         elif collideProblem2 and fixed_2:
@@ -171,24 +175,25 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                 if collideAnswer1:
                     text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
-                        fixed_3 = False
-                        mistakes += 1
+                        text = 'Could this possibly fix it?'
+                    if click[0]:
+                        text = 'That seems to be right!'
+                        fixed_4 = True
 
                 collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
                         text = 'Nope, that does not seem right!'
-                        fixed_3 = False
+                        fixed_4 = False
                         mistakes += 1
 
                 collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
-                    text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'That seems to be right!'
-                        fixed_3 = True
+                        text = 'Nope, that does not seem right!'
+                        fixed_4 = False
+                        mistakes += 1
 
         # Once problem 3 is fixed
         elif collideProblem4 and fixed_4:
@@ -199,4 +204,4 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
         if fixed_1 and fixed_2 and fixed_3 and fixed_4:
             text = "HA! I've done it!"
 
-    return text, color, fixed_1, fixed_2, fixed_3, mistakes
+    return text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes
