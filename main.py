@@ -96,7 +96,8 @@ def main_menu(level):
             elif level == 6:
                 level6()
         elif to_do == "read":
-            continue
+            read_menu(level)
+            run = False
         elif to_do == "exit":
             run = False
 
@@ -150,6 +151,7 @@ def level1():  # main function of our game
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level2()
+            run = False
 
     pygame.quit()
 
@@ -202,7 +204,8 @@ def level2():  # main function of our game
         refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
-            level5()
+            level3()
+            run = False
 
     pygame.quit()
 
@@ -252,7 +255,8 @@ def level3():
         # refreshing the picture
         refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
-            level6()
+            level4()
+            run = False
 
     pygame.quit()
 
@@ -302,7 +306,8 @@ def level4():
         refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
         print(character_rectangle.x, character_rectangle.y)
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
-            level6()
+            level5()
+            run = False
 
     pygame.quit()
 
@@ -360,6 +365,7 @@ def level5():
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level6()
+            run = False
 
     pygame.quit()
 
@@ -410,6 +416,7 @@ def level6():
         refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             final_level()
+            run = False
 
     pygame.quit()
 
@@ -448,4 +455,4 @@ def final_level():  # main function of our game
 
 # calling the main function
 if __name__ == "__main__":
-    main_menu(1)
+    level4()
