@@ -102,7 +102,6 @@ def level1():  # main function of our game
 
     # defining variables used in main
     character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
-    mistakes = 0
     level = 1
     fixed_1 = False
     fixed_2 = False
@@ -138,10 +137,10 @@ def level1():  # main function of our game
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes = il1.interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, CONSTANTS.MISTAKES = il1.interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, CONSTANTS.MISTAKES)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, CONSTANTS.MISTAKES, nxt)
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level2()
@@ -157,7 +156,6 @@ def level2():  # main function of our game
 
     # defining variables used in main
     character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
-    mistakes = 0
     level = 2
     fixed_1 = False
     fixed_2 = False
@@ -192,10 +190,10 @@ def level2():  # main function of our game
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes = il1.interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, CONSTANTS.MISTAKES = il1.interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, CONSTANTS.MISTAKES)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, CONSTANTS.MISTAKES, nxt)
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level3()
@@ -207,7 +205,6 @@ def level2():  # main function of our game
 def level3():
     # defining variables used in main
     character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
-    mistakes = 0
     level = 3
     fixed_1 = False
     fixed_2 = False
@@ -244,10 +241,10 @@ def level3():
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, mistakes = il3.interact3(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, CONSTANTS.MISTAKES = il3.interact3(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, CONSTANTS.MISTAKES)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, CONSTANTS.MISTAKES, nxt)
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level4()
             run = False
@@ -257,7 +254,6 @@ def level3():
 def level4():
     # defining variables used in main
     character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
-    mistakes = 0
     level = 4
     fixed_1 = False
     fixed_2 = False
@@ -294,10 +290,10 @@ def level4():
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, mistakes = il4.interact4(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, CONSTANTS.MISTAKES = il4.interact4(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, level, CONSTANTS.MISTAKES)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, CONSTANTS.MISTAKES, nxt)
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level5()
             run = False
@@ -308,7 +304,6 @@ def level4():
 def level5():
     # defining variables used in main
     character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
-    mistakes = 0
     level = 5
     fixed_1 = False
     fixed_2 = False
@@ -351,10 +346,10 @@ def level5():
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes = interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, fixed_4, CONSTANTS.MISTAKES = interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, CONSTANTS.MISTAKES)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, CONSTANTS.MISTAKES, nxt)
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level6()
@@ -366,7 +361,6 @@ def level5():
 def level6():
     # defining variables used in main
     character_rectangle = pygame.Rect(950, 500, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
-    mistakes = 0
     level = 6
     fixed_1 = False
     fixed_2 = False
@@ -403,10 +397,10 @@ def level6():
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes = il6.interact6(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, fixed_4, CONSTANTS.MISTAKES = il6.interact6(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, CONSTANTS.MISTAKES)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, CONSTANTS.MISTAKES, nxt)
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             final_level()
             run = False
