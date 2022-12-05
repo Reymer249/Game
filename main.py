@@ -18,7 +18,7 @@ import core.interact_logic_4 as il4
 def read_menu(level):
     # defining variables used in main
     left_arrow_rectangle = pygame.Rect(
-        (WIDTH // 2 - READMENU_ARROW_DIST,
+        (WIDTH // 2 - CONSTANTS.READMENU_ARROW_DIST,
          READMENU_SCREEN_PADDING + READMENU_SCREENSHOT_HEI // 2 - READMENU_ARROW_L.get_height() // 2),
         (READMENU_ARROW_L.get_width(),
          READMENU_ARROW_L.get_height()))
