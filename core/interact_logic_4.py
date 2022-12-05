@@ -45,119 +45,120 @@ def interact4(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, leve
         # While not near any problem
         if not collideProblem1 and not collideProblem2 and not collideProblem3:
             color = BLUE # When drawing the problem locations to visualize
-            text = "Let's fix it!"
+            text = "Another level... bruh"
         else:
             color = RED # When drawing the problem locations to visualize
 
         # Near problem 1
         if collideProblem1 and not fixed_1:
-            text = "Something's off! It's seems that there is a part missing!"
+            text = "Big part... missing! Ah, work again."
 
             if collideProblem1 and keys_pressed[pygame.K_RETURN]: # Pressing enter shows up possible fixes
-                text = 'HMM, It seems the circuit is not fully connected. I wonder fits in here'
+                text = 'It seems we need 4 numbers here'
                 drawOptions(CONSTANTS.opt1, CONSTANTS.opt2, CONSTANTS.opt3, 1) # Draws the answer options
 
                 #Mouse over and click on answer
                 collideAnswer1 = CONSTANTS.opt1.collidepoint(point)
                 if collideAnswer1:
-                    text = 'Could this possibly fix it?'
+                    text = '1101 is 13 in decimal. Not lucky number...'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
+                        text = 'And... no :(('
                         fixed_1 = False
                         mistakes += 1
 
                 collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
-                    text = 'Could this possibly fix it?'
+                    text = 'It looks fancy, wanna try this one?'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
+                        text = 'Again no!?'
                         fixed_1 = False
                         mistakes += 1
 
                 collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
-                    text = 'Could this possibly fix it?'
+                    text = "I don't like last options..."
                     if click[0]:
-                        text = 'That seems to be right'
+                        text = 'But this one is the right one!'
                         fixed_1 = True
 
         # Once problem is fixed
         elif collideProblem1 and fixed_1:
-            text = 'Fixed!'
+            text = 'Huh, another part done!'
 
         # Problem 2
         if collideProblem2 and not fixed_2:
-            text = "Something's off! It's seems that there is a part missing!"
+            text = "Oops, it seems i need write something here as well"
 
             if collideProblem2 and keys_pressed[pygame.K_RETURN]:
-                text = 'HMM, I need to name this AND gate'
+                text = "Only one number, that's good. Less possibility for the mistake"
                 drawOptions(CONSTANTS.opt1, CONSTANTS.opt2, CONSTANTS.opt3, 2)
 
                 #Mouse over and click on answer
                 collideAnswer2 = CONSTANTS.opt1.collidepoint(point)
                 if collideAnswer2:
-                    text = 'Could this possibly fix it?'
+                    text = 'Just a number 0. Like a donut'
                     if click[0]:
-                        text = 'That seems to be right!'
+                        text = 'That seems to be good!'
                         fixed_2 = True
 
                 collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
-                    text = 'Could this possibly fix it?'
+                    text = 'Number 1, I am always number 1'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
+                        text = 'Nope, not right'
                         fixed_2 = False
                         mistakes += 1
 
                 collideAnswer2 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer2:
+                    text = 'Does two even can appear here..?'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
+                        text = 'I was rejected'
                         fixed_2 = False
                         mistakes += 1
 
         # Once problem 2 is fixed
         elif collideProblem2 and fixed_2:
-            text = 'Fixed!'
+            text = 'Leading one in done'
 
         # Problem 3
         if collideProblem3 and not fixed_3:
-            text = "Something's off! It's seems that there is a part missing!"
+            text = "Don't walk me away from this point. Let's firstly fix it!"
 
             if collideProblem3 and keys_pressed[pygame.K_RETURN]: # Pressing enter shows up possible fixes
-                text = 'HMM, I need to name this OR gate'
+                text = 'Another day, another number missing...'
                 drawOptions(CONSTANTS.opt1, CONSTANTS.opt2, CONSTANTS.opt3, 3)
 
                 #Mouse over and click on answer
                 collideAnswer1 = CONSTANTS.opt1.collidepoint(point)
                 if collideAnswer1:
-                    text = 'Could this possibly fix it?'
+                    text = 'All in on zero!'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
+                        text = "Bet didn't play"
                         fixed_3 = False
                         mistakes += 1
 
                 collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
-                    text = 'Could this possibly fix it?'
+                    text = "1... and more dots to make you doubt.........."
                     if click[0]:
-                        text = 'That seems to be right!'
+                        text = "You shouldn't trust me"
                         fixed_3 = True
 
                 collideAnswer3 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer3:
-                    text = 'Could this possibly fix it?'
+                    text = '2, really? Why am I controlled by an idiot?...'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
+                        text = 'No, for sure no!'
                         fixed_3 = False
                         mistakes += 1
 
         # Once problem 3 is fixed
         elif collideProblem3 and fixed_3:
-            text = 'Fixed!'
+            text = 'Thank you, next!'
 
         # Once all the problems are fixed
         if fixed_1 and fixed_2 and fixed_3:
-            text = "HA! I've done it!"
+            text = "My mother told me that I am a smart boy. Let's go on the next level!"
 
     return text, color, fixed_1, fixed_2, fixed_3, mistakes

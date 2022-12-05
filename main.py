@@ -442,4 +442,4 @@ def final_level():  # main function of our game
 
 # calling the main function
 if __name__ == "__main__":
-    main_menu(1)
+    level5()

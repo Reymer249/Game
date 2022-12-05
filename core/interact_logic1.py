@@ -284,8 +284,8 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed
             text = "Of course! AB' + AC!"
 
         # Once all the problems are fixed
-        #if fixed_1 and fixed_2 and fixed_3:
-            #Next level
+        if fixed_1 and fixed_2 and fixed_3:
+            text = "Ha, I have done it!"
 
         # Other levels (I guess can copy the code and just change the level at top, text to whatever necessary, changing the location of the correct answer so it's not always option B
 
@@ -527,10 +527,7 @@ def interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed
 
         # Once all the problems are fixed
         if fixed_1 and fixed_2 and fixed_3 and fixed_4 and fixed_5 and fixed_6:
-            if level == 1:
-                text = "Ha, I have done it!"
-            else:
-                text = "Yaaaaahoooooo!!!"
+            text = "Eaz-peasy lemon squeezy ;)"
 
 
     return text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes
