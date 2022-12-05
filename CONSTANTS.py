@@ -92,6 +92,50 @@ EXIT_BUTTON = pygame.transform.scale(
 READ_BUTTON = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", "main_menu", "read.png")), (BUTTON_WIDTH, BUTTON_HEIGHT))
 
+# read menu objects
+READMENU_SCREEN_PADDING = 50
+READMENU_SCREENSHOT_WID = 500
+READMENU_SCREENSHOT_HEI = 250
+READMENU_SCREENSHOT_MARGIN = 10
+READMENU_DESCRIPTION_PADDING_TOP_FIRST = 60
+READMENU_DESCRIPTION_PADDING_TOP = 80
+READMENU_DESCRIPTION_SCALE_FIRST = 1.3
+READMENU_DESCRIPTION_SCALE = 1.5
+READMENU_ARROW_DIST = 370
+
+READMENU_SLIDECOUNT = 4
+
+READMENU_SCREENSHOTS = [
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_5_6.png")),
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_1_2.png")),
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_5_6.png")),
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_5_6.png"))
+]
+READMENU_SCREENSHOTS = [pygame.transform.scale(
+    x, (READMENU_SCREENSHOT_WID, READMENU_SCREENSHOT_HEI)) for x in READMENU_SCREENSHOTS]
+
+READMENU_DESCRIPTION_IMGS = [
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "read_prelevel.png")),
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "read_lvl_1_2.png")),
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "read_lvl_3_4.png")),
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "read_lvl_5_6.png"))
+]
+READMENU_DESCRIPTION_IMGS = [pygame.transform.scale(
+    READMENU_DESCRIPTION_IMGS[0],
+    (round(READMENU_DESCRIPTION_SCALE_FIRST * READMENU_DESCRIPTION_IMGS[0].get_width()),
+     round(READMENU_DESCRIPTION_SCALE_FIRST * READMENU_DESCRIPTION_IMGS[0].get_height())))] + [
+    pygame.transform.scale(x, (round(READMENU_DESCRIPTION_SCALE * x.get_width()),
+                               round(READMENU_DESCRIPTION_SCALE * x.get_height())))
+    for x in READMENU_DESCRIPTION_IMGS[1:]]
+
+READMENU_CROSS = pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "cross.png"))
+READMENU_ARROW_L = pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "left_arrow.png"))
+READMENU_ARROW_L_FAINT = pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "left_arrow.png"))
+READMENU_ARROW_L_FAINT.set_alpha(100)
+READMENU_ARROW_R = pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "right_arrow.png"))
+READMENU_ARROW_R_FAINT = pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "right_arrow.png"))
+READMENU_ARROW_R_FAINT.set_alpha(64)
+
 #level1 assets
 #BLACKBOARD SPRITES
 logic_array_broken = pygame.transform.scale(

@@ -250,3 +250,32 @@ def refresh_main(start_rectangle, read_rectangle, exit_rectangle):
     WINDOW.blit(EXIT_BUTTON, (exit_rectangle.x, exit_rectangle.y))
 
     pygame.display.update()
+
+
+def draw_read_menu(slide_num):
+    WINDOW.fill(SOFT_BLUE)
+
+    WINDOW.blit(READMENU_CROSS, (READMENU_SCREEN_PADDING, READMENU_SCREEN_PADDING))
+
+    WINDOW.blit((READMENU_ARROW_L_FAINT if slide_num == 0 else READMENU_ARROW_L),
+                (WIDTH // 2 - READMENU_ARROW_DIST, READMENU_SCREEN_PADDING
+                 + READMENU_SCREENSHOTS[slide_num].get_height() // 2 - READMENU_ARROW_L.get_height() // 2))
+    WINDOW.blit((READMENU_ARROW_R_FAINT if slide_num == READMENU_SLIDECOUNT - 1 else READMENU_ARROW_R),
+                (WIDTH // 2 + READMENU_ARROW_DIST - READMENU_ARROW_R.get_width(),
+                 READMENU_SCREEN_PADDING + READMENU_SCREENSHOT_HEI // 2 - READMENU_ARROW_R.get_height() // 2))
+
+    pygame.draw.rect(WINDOW, (255,235,204), pygame.Rect(
+        WIDTH // 2 - READMENU_SCREENSHOTS[slide_num].get_width() // 2 - READMENU_SCREENSHOT_MARGIN,
+        READMENU_SCREEN_PADDING - READMENU_SCREENSHOT_MARGIN,
+        READMENU_SCREENSHOT_WID + READMENU_SCREENSHOT_MARGIN * 2,
+        READMENU_SCREENSHOT_HEI + READMENU_SCREENSHOT_MARGIN * 2))
+    WINDOW.blit(READMENU_SCREENSHOTS[slide_num],
+                (WIDTH // 2 - READMENU_SCREENSHOTS[slide_num].get_width() // 2, READMENU_SCREEN_PADDING))
+
+    WINDOW.blit(READMENU_DESCRIPTION_IMGS[slide_num],
+                (WIDTH // 2 - READMENU_DESCRIPTION_IMGS[slide_num].get_width() // 2,
+                 READMENU_SCREEN_PADDING +
+                 (READMENU_DESCRIPTION_PADDING_TOP_FIRST if slide_num == 0 else READMENU_DESCRIPTION_PADDING_TOP)
+                 + READMENU_SCREENSHOTS[slide_num].get_height()))
+
+    pygame.display.update()

@@ -3,6 +3,7 @@ import pygame
 import CONSTANTS
 
 from core import menu_logic
+from core import read_menu_logic
 from core.interact_logic import *
 from core.interact_logic import interact
 from core.movement_logic import *
@@ -12,6 +13,59 @@ import core.interact_logic_6 as il6
 import core.interact_logic1 as il1
 import core.interact_logic_3 as il3
 import core.interact_logic_4 as il4
+
+
+def read_menu(level):
+    # defining variables used in main
+    left_arrow_rectangle = pygame.Rect(
+        (WIDTH // 2 - READMENU_ARROW_DIST,
+         READMENU_SCREEN_PADDING + READMENU_SCREENSHOT_HEI // 2 - READMENU_ARROW_L.get_height() // 2),
+        (READMENU_ARROW_L.get_width(),
+         READMENU_ARROW_L.get_height()))
+    right_arrow_rectangle = pygame.Rect(
+        (WIDTH // 2 + READMENU_ARROW_DIST - READMENU_ARROW_R.get_width(),
+         READMENU_SCREEN_PADDING + READMENU_SCREENSHOT_HEI // 2 - READMENU_ARROW_R.get_height() // 2),
+        (READMENU_ARROW_R.get_width(),
+         READMENU_ARROW_R.get_height()))
+    exit_button_rectangle = pygame.Rect(
+        (READMENU_SCREEN_PADDING, READMENU_SCREEN_PADDING),
+        (READMENU_CROSS.get_width(), READMENU_CROSS.get_height()))
+    clock = pygame.time.Clock()
+
+    if_button_clicked = False
+
+    slide = 0
+
+    run = True
+    while run:
+        clock.tick(FPS)  # function to have stable FPS
+        # checking for x button to quit
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+        draw_read_menu(slide)
+
+        to_do = read_menu_logic.check_mouse(left_arrow_rectangle, right_arrow_rectangle, exit_button_rectangle)
+
+        if to_do == "none":
+            if_button_clicked = False
+
+        if not if_button_clicked:
+            if to_do == "left":
+                if slide > 0:
+                    slide -= 1
+                if_button_clicked = True
+            elif to_do == "right":
+                if slide < READMENU_SLIDECOUNT - 1:
+                    slide += 1
+                if_button_clicked = True
+            elif to_do == "exit":
+                main_menu(level)
+                run = False
+
+    pygame.quit()
+
 
 def main_menu(level):
     # defining variables used in main
@@ -98,6 +152,7 @@ def level1():  # main function of our game
             level2()
 
     pygame.quit()
+
 
 def level2():  # main function of our game
 
@@ -286,6 +341,12 @@ def level5():
         if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
             main_menu(level)
 
+        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
+            main_menu()
+
+        if fixed_1 and fixed_2 and fixed_3 and fixed_4:
+            nxt = True
+
         # changing the coordinates using the pygame buttons tracker
         character_rectangle.x, character_rectangle.y = movement(VELOCITY, character_rectangle, keys_pressed)
         # changing the model according to where character moves
@@ -301,6 +362,7 @@ def level5():
             level6()
 
     pygame.quit()
+
 
 def level6():
     # defining variables used in main
@@ -350,6 +412,7 @@ def level6():
             final_level()
 
     pygame.quit()
+
 
 def final_level():  # main function of our game
     # defining variables used in main

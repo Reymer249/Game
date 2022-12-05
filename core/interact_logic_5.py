@@ -51,7 +51,7 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
         # While not near any problem
         if not collideProblem1 and not collideProblem2 and not collideProblem3 and not collideProblem4:
             color = BLUE # When drawing the problem locations to visualize
-            text = "Let's fix it!"
+            text = "Let's have a look!"
         else:
             color = RED # When drawing the problem locations to visualize
 
@@ -104,8 +104,9 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
                 if collideAnswer2:
                     text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'That seems to be right!'
-                        fixed_2 = True
+                        text = 'Nope, that does not seem right!'
+                        fixed_2 = False
+                        mistakes += 1
 
                 collideAnswer2 = CONSTANTS.opt2.collidepoint(point)
                 if collideAnswer2:
@@ -117,10 +118,10 @@ def interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixe
 
                 collideAnswer2 = CONSTANTS.opt3.collidepoint(point)
                 if collideAnswer2:
+                    text = 'Could this possibly fix it?'
                     if click[0]:
-                        text = 'Nope, that does not seem right!'
-                        fixed_2 = False
-                        mistakes += 1
+                        text = 'That seems to be right!'
+                        fixed_2 = True
 
         # Once problem 2 is fixed
         elif collideProblem2 and fixed_2:
