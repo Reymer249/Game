@@ -177,7 +177,7 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
         if fixed_1 and not fixed_2 and fixed_3 and fixed_4:
             WINDOW.blit(MEM_ARRAY6_FIXED_134, (100, 100))
         if fixed_1 and fixed_2 and fixed_3 and fixed_4:
-            WINDOW.blit(MEM_ARRAY5_FIXED_FULL, (100, 100))
+            WINDOW.blit(MEM_ARRAY6_FIXED_FULL, (100, 100))
 
     # task (render 3rd)
     il1.task(keys_pressed, level, mistakes)

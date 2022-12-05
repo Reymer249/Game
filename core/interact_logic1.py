@@ -541,6 +541,7 @@ def task(keys_pressed, level, mistakes):
     #print(point)
 
     mistake_count = "Points lost: " + str(mistakes)
+    global text_font
 
 
     # Task box and collision
@@ -608,31 +609,84 @@ def task(keys_pressed, level, mistakes):
             WINDOW.blit(task_do, (65, 460))
 
         if level == 4:
-            task_description = text_font.render("On this level you have couple calculations that are missing some of the values.", True, BLACK)
-            task_description1 = text_font.render("In each of those you need to find a digit such that if we put it instead of the question mark, ", True, BLACK)
-            task_description2 = text_font.render("it will give us the expected answer.", True, BLACK)
-            hint1 = text_font.render('· Problem (1) is about sum of binary numbers. You can find more information about that in our video*', True, BLACK)
-            hint12 = text_font.render('(timeslot [02:20-02:50])', True, BLACK)
-            hint2 = text_font.render('· Problem (2) is about difference of binary numbers (timeslot [02:20-03:48])', True, BLACK)
-            hint3 = text_font.render("· In problem (3) you need to transform a number from binary to hexadecimal representation", True, BLACK)
-            hint32 = text_font.render("(timeslot [00:42-02:11])", True, BLACK)
-            hint4 = text_font.render("Hint: it is easier to be done through decimal numbers system.", True, BLACK)
-            task_do = text_font.render("*A video from group 37 about Digital Building Blocks is on the Brightspace", True, BLACK)
+            k = 35
+            text_font = pygame.font.SysFont(None, k)
+            task_description = text_font.render("Unlike in the previous level, in this one you will have only two problems with missing", True, BLACK)
+            task_description1 = text_font.render("digits. And again, you need to find them so that the calculations make sense. Although,", True, BLACK)
+            task_description2 = text_font.render("don't feel relieved with the number of problems: there are still 3 questionmarks overall", True, BLACK)
+            task_description3 = text_font.render("in the level, and moreover: second exercise is a bit harder as you may notice ;)", True, BLACK)
+            hint1 = text_font.render('· So, problem (1) includes sum operation between two binary numbers,', True, BLACK)
+            hint12 = text_font.render('but almost half of the result is lost (timeslot [02:20-02:50])', True, BLACK)
+            hint2 = text_font.render('· In problem (2) you are asked to calculate number 124 (from decimal system)', True, BLACK)
+            hint3 = text_font.render("to its representation with floating point (using IEEE standard 754 32-bit encoding format)", True, BLACK)
+            hint32 = text_font.render("(timeslot[04:16-05:46])", True, BLACK)
+            #hint4 = text_font.render("Hint: it is easier to be done through decimal numbers system.", True, BLACK)
+            #task_do = text_font.render("*A video from group 37 about Digital Building Blocks is on the Brightspace", True, BLACK)
+            mistake_text = text_font_big.render(mistake_count, True, RED)
+            WINDOW.blit(mistake_text, (830, 430)) # Currently there is a problem cause it keeps adding +1 to mistake counts if mouse button is pressed down, so often it will add more than one :/
+            WINDOW.blit(task_description, (65, 80+0*k))
+            WINDOW.blit(task_description1, (65, 80+1*k))
+            WINDOW.blit(task_description2, (65, 80+2*k))
+            WINDOW.blit(task_description3, (65, 80+3*k))
+            WINDOW.blit(hint1, (65, 80+4*k))
+            WINDOW.blit(hint12, (65, 80+5*k))
+            WINDOW.blit(hint2, (65, 80+6*k))
+            WINDOW.blit(hint3, (65, 80+7*k))
+            WINDOW.blit(hint32, (65, 80+8*k))
+            #WINDOW.blit(hint4, (65, 80+8*k))
+            #WINDOW.blit(task_do, (65, 80+9*k))
+
+        if level == 5:
+            k = 35
+            text_font = pygame.font.SysFont(None, k)
+            task_description = text_font.render("Only 2 levels to go meet the Boss! Great job!", True, BLACK)
+            task_description1 = text_font.render("Anyway, here you are given a memory array, specifically DRAM (Dynamic Random", True, BLACK)
+            task_description2 = text_font.render("Access Memory) array. You can learn more about it and also about other", True, BLACK)
+            task_description3 = text_font.render("types of memory arrays in the video (that was already mentioned).", True, BLACK)
+            task_description32 = text_font.render("Although, in that memory array some of the elements don't seem right,", True, BLACK)
+            task_description4 = text_font.render('for example some of the capacitors are broken or their ground is missing.', True, BLACK)
+            task_description5 = text_font.render('Besides all that trouble, some bat have bitten the wire that is being provided', True, BLACK)
+            task_description52 = text_font.render("power and we kindly ask to fix all of that ^.^", True, BLACK)
             mistake_text = text_font_big.render(mistake_count, True, RED)
             WINDOW.blit(mistake_text, (830, 430)) # Currently there is a problem cause it keeps adding +1 to mistake counts if mouse button is pressed down, so often it will add more than one :/
             WINDOW.blit(task_description, (65, 80))
+            WINDOW.blit(task_description1, (65, 160))
+            WINDOW.blit(task_description2, (65, 200))
+            WINDOW.blit(task_description3, (65, 240))
+            WINDOW.blit(task_description32, (65, 280))
+            WINDOW.blit(task_description4, (65, 320))
+            WINDOW.blit(task_description5, (65, 360))
+            WINDOW.blit(task_description52, (65, 400))
+
+        if level == 6:
+            k = 35
+            text_font = pygame.font.SysFont(None, k)
+            task_description = text_font.render("Wow, you did it, nice! Thank you!", True, BLACK)
+            task_description1 = text_font.render("However, same happened to another one of our memory arrays, so can you please", True, BLACK)
+            task_description2 = text_font.render("help us with that once again? To keep you focused and organized here is", True, BLACK)
+            task_description3 = text_font.render("the task once again:", True, BLACK)
+            task_description32 = text_font.render("Here you are given a memory array, specifically DRAM (Dynamic Random", True, BLACK)
+            task_description4 = text_font.render('Access Memory) array. Info about it you may find in the video', True, BLACK)
+            task_description5 = text_font.render("Although, in that memory array some of the elements don't seem right,", True, BLACK)
+            task_description52 = text_font.render("for example some of the capacitors are broken or their ground is missing.", True, BLACK)
+            task_description6 = text_font.render("Besides all that trouble, some mice have bitten the wire that is being", True, BLACK)
+            task_description7 = text_font.render("provided power and we kindly ask to fix all of that ^.^", True, BLACK)
+            mistake_text = text_font_big.render(mistake_count, True, RED)
+            WINDOW.blit(mistake_text, (830, 430)) # Currently there is a problem cause it keeps adding +1 to mistake counts if mouse button is pressed down, so often it will add more than one :/
+            WINDOW.blit(task_description, (65, 70))
             WINDOW.blit(task_description1, (65, 120))
             WINDOW.blit(task_description2, (65, 160))
-            WINDOW.blit(hint1, (65, 200))
-            WINDOW.blit(hint12, (65, 240))
-            WINDOW.blit(hint2, (65, 280))
-            WINDOW.blit(hint3, (65, 320))
-            WINDOW.blit(hint32, (65, 360))
-            WINDOW.blit(hint4, (65, 400))
-            WINDOW.blit(task_do, (65, 460))
+            WINDOW.blit(task_description3, (65, 200))
+            WINDOW.blit(task_description32, (65, 240))
+            WINDOW.blit(task_description4, (65, 280))
+            WINDOW.blit(task_description5, (65, 320))
+            WINDOW.blit(task_description52, (65, 360))
+            WINDOW.blit(task_description6, (65, 400))
+            WINDOW.blit(task_description7, (65, 440))
 
 
     # Draws the task box on so that it is on top of the white page
+    text_font = pygame.font.SysFont(None, 30)
     pygame.draw.rect(WINDOW, WHITE, box_coordinates)
     task_text = text_font.render('TASK', True, BLACK,)
     WINDOW.blit(task_text, (1075,66))

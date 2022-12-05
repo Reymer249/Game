@@ -15,6 +15,7 @@ FINAL_BACKGROUND = pygame.transform.scale(FINAL_BACKGROUND, (WIDTH, HEIGHT))
 #  game flow setting
 FPS = 60
 VELOCITY = 5  # velocity of the character
+MISTAKES = 0
 
 #  colors
 GREEN = (0, 229, 0)
