@@ -583,7 +583,53 @@ def task(keys_pressed, level, mistakes):
             WINDOW.blit(hint3, (65, 300))
             WINDOW.blit(task_do, (65, 380))
 
+        if level == 3:
+            task_description = text_font.render("On this level you have couple calculations that are missing some of the values.", True, BLACK)
+            task_description1 = text_font.render("In each of those you need to find a digit such that if we put it instead of the question mark, ", True, BLACK)
+            task_description2 = text_font.render("it will give us the expected answer.", True, BLACK)
+            hint1 = text_font.render('· Problem (1) is about sum of binary numbers. You can find more information about that in our video*', True, BLACK)
+            hint12 = text_font.render('(timeslot [02:20-02:50])', True, BLACK)
+            hint2 = text_font.render('· Problem (2) is about difference of binary numbers (timeslot [02:20-03:48])', True, BLACK)
+            hint3 = text_font.render("· In problem (3) you need to transform a number from binary to hexadecimal representation", True, BLACK)
+            hint32 = text_font.render("(timeslot [00:42-02:11])", True, BLACK)
+            hint4 = text_font.render("Hint: it is easier to be done through decimal numbers system.", True, BLACK)
+            task_do = text_font.render("*A video from group 37 about Digital Building Blocks is on the Brightspace", True, BLACK)
+            mistake_text = text_font_big.render(mistake_count, True, RED)
+            WINDOW.blit(mistake_text, (830, 430)) # Currently there is a problem cause it keeps adding +1 to mistake counts if mouse button is pressed down, so often it will add more than one :/
+            WINDOW.blit(task_description, (65, 80))
+            WINDOW.blit(task_description1, (65, 120))
+            WINDOW.blit(task_description2, (65, 160))
+            WINDOW.blit(hint1, (65, 200))
+            WINDOW.blit(hint12, (65, 240))
+            WINDOW.blit(hint2, (65, 280))
+            WINDOW.blit(hint3, (65, 320))
+            WINDOW.blit(hint32, (65, 360))
+            WINDOW.blit(hint4, (65, 400))
+            WINDOW.blit(task_do, (65, 460))
 
+        if level == 4:
+            task_description = text_font.render("On this level you have couple calculations that are missing some of the values.", True, BLACK)
+            task_description1 = text_font.render("In each of those you need to find a digit such that if we put it instead of the question mark, ", True, BLACK)
+            task_description2 = text_font.render("it will give us the expected answer.", True, BLACK)
+            hint1 = text_font.render('· Problem (1) is about sum of binary numbers. You can find more information about that in our video*', True, BLACK)
+            hint12 = text_font.render('(timeslot [02:20-02:50])', True, BLACK)
+            hint2 = text_font.render('· Problem (2) is about difference of binary numbers (timeslot [02:20-03:48])', True, BLACK)
+            hint3 = text_font.render("· In problem (3) you need to transform a number from binary to hexadecimal representation", True, BLACK)
+            hint32 = text_font.render("(timeslot [00:42-02:11])", True, BLACK)
+            hint4 = text_font.render("Hint: it is easier to be done through decimal numbers system.", True, BLACK)
+            task_do = text_font.render("*A video from group 37 about Digital Building Blocks is on the Brightspace", True, BLACK)
+            mistake_text = text_font_big.render(mistake_count, True, RED)
+            WINDOW.blit(mistake_text, (830, 430)) # Currently there is a problem cause it keeps adding +1 to mistake counts if mouse button is pressed down, so often it will add more than one :/
+            WINDOW.blit(task_description, (65, 80))
+            WINDOW.blit(task_description1, (65, 120))
+            WINDOW.blit(task_description2, (65, 160))
+            WINDOW.blit(hint1, (65, 200))
+            WINDOW.blit(hint12, (65, 240))
+            WINDOW.blit(hint2, (65, 280))
+            WINDOW.blit(hint3, (65, 320))
+            WINDOW.blit(hint32, (65, 360))
+            WINDOW.blit(hint4, (65, 400))
+            WINDOW.blit(task_do, (65, 460))
 
 
     # Draws the task box on so that it is on top of the white page

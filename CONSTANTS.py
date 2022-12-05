@@ -191,6 +191,63 @@ problem3_incorrect2 = pygame.transform.scale(
 level1_task = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", "level1", "level1_task.jpg")), (1030, 320))
 
+# level3 assets
+# BLACKBOARD
+NUM_SYST3_BROKEN = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level3', "lvl_3_not_fixed.png")), (1030, 320))
+NUM_SYST3_FIXED_FULL = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level3', "lvl_3_fixed.png")), (1030, 320))
+NUM_SYST3_FIXED_1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level3', "lvl_3_1_1.png")), (1030, 320))
+NUM_SYST3_FIXED_2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level3', "lvl_3_1_2.png")), (1030, 320))
+NUM_SYST3_FIXED_3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level3', "lvl_3_1_3.png")), (1030, 320))
+NUM_SYST3_FIXED_12 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level3', "lvl_3_2_3.png")), (1030, 320))
+NUM_SYST3_FIXED_13 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level3', "lvl_3_2_2.png")), (1030, 320))
+NUM_SYST3_FIXED_23 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level3', "lvl_3_2_1.png")), (1030, 320))
+#ANSWER SPRITES
+OPTION3_1_1 = pygame.image.load(os.path.join("Assets", "level3", "3_options_1_1.png"))
+OPTION3_1_2 = pygame.image.load(os.path.join("Assets", "level3", "3_options_1_2.png"))
+OPTION3_1_3 = pygame.image.load(os.path.join("Assets", "level3", "3_options_1_3.png"))
+OPTION3_2_1 = pygame.image.load(os.path.join("Assets", "level3", "3_options_1_1.png"))
+OPTION3_2_2 = pygame.image.load(os.path.join("Assets", "level3", "3_options_1_2.png"))
+OPTION3_2_3 = pygame.image.load(os.path.join("Assets", "level3", "3_options_1_3.png"))
+OPTION3_3_1 = pygame.image.load(os.path.join("Assets", "level3", "3_options_3_1.png"))
+OPTION3_3_2 = pygame.image.load(os.path.join("Assets", "level3", "3_options_3_2.png"))
+OPTION3_3_3 = pygame.image.load(os.path.join("Assets", "level3", "3_options_3_3.png"))
+
+# level4 assets
+# BLACKBOARD
+NUM_SYST4_BROKEN = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level4', "lvl_4_not_fixed.png")), (1030, 320))
+NUM_SYST4_FIXED_FULL = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level4', "lvl_4_fixed.png")), (1030, 320))
+NUM_SYST4_FIXED_1 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level4', "lvl_4_1_1.png")), (1030, 320))
+NUM_SYST4_FIXED_2 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level4', "lvl_4_1_2.png")), (1030, 320))
+NUM_SYST4_FIXED_3 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level4', "lvl_4_1_3.png")), (1030, 320))
+NUM_SYST4_FIXED_12 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level4', "lvl_4_2_1.png")), (1030, 320))
+NUM_SYST4_FIXED_13 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level4', "lvl_4_2_2.png")), (1030, 320))
+NUM_SYST4_FIXED_23 = pygame.transform.scale(
+    pygame.image.load(os.path.join("Assets", 'level4', "lvl_4_2_3.png")), (1030, 320))
+#ANSWER SPRITES
+OPTION4_1_1 = pygame.image.load(os.path.join("Assets", "level4", "4_options_1_1.png"))
+OPTION4_1_2 = pygame.image.load(os.path.join("Assets", "level4", "4_options_1_2.png"))
+OPTION4_1_3 = pygame.image.load(os.path.join("Assets", "level4", "4_options_1_3.png"))
+OPTION4_2_1 = pygame.image.load(os.path.join("Assets", "level4", "4_options_2_1.png"))
+OPTION4_2_2 = pygame.image.load(os.path.join("Assets", "level4", "4_options_2_2.png"))
+OPTION4_2_3 = pygame.image.load(os.path.join("Assets", "level4", "4_options_2_3.png"))
+OPTION4_3_1 = pygame.image.load(os.path.join("Assets", "level4", "4_options_2_1.png"))
+OPTION4_3_2 = pygame.image.load(os.path.join("Assets", "level4", "4_options_2_2.png"))
+OPTION4_3_3 = pygame.image.load(os.path.join("Assets", "level4", "4_options_2_3.png"))
 #level5 assets
 MEM_ARRAY5_BROKEN = pygame.transform.scale(
     pygame.image.load(os.path.join("Assets", 'level5', "lvl_5_not_fixed.png")), (1030, 320))

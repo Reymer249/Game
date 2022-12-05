@@ -8,6 +8,8 @@ import core.interact_logic as il
 import core.interact_logic1 as il1
 from core.interact_logic_5 import *
 import core.interact_logic_6 as il6
+import core.interact_logic_3 as il3
+import core.interact_logic_4 as il4
 
 def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4,fixed_5, fixed_6, mistakes, nxt):
 
@@ -70,6 +72,44 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
             WINDOW.blit(level2_part2_3, (735, 365))
         else:
             WINDOW.blit(level2_part2_fixed3, (735, 365))
+
+    if level == 3:
+
+        if not fixed_1 and not fixed_2 and not fixed_3:
+            WINDOW.blit(NUM_SYST3_BROKEN, (100, 100))
+        if fixed_1 and not fixed_2 and not fixed_3:
+            WINDOW.blit(NUM_SYST3_FIXED_1, (100, 100))
+        if not fixed_1 and fixed_2 and not fixed_3:
+            WINDOW.blit(NUM_SYST3_FIXED_2, (100,100))
+        if not fixed_1 and not fixed_2 and fixed_3:
+            WINDOW.blit(NUM_SYST3_FIXED_3, (100,100))
+        if fixed_1 and fixed_2 and not fixed_3:
+            WINDOW.blit(NUM_SYST3_FIXED_12, (100, 100))
+        if fixed_1 and not fixed_2 and fixed_3:
+            WINDOW.blit(NUM_SYST3_FIXED_13, (100, 100))
+        if not fixed_1 and fixed_2 and fixed_3:
+            WINDOW.blit(NUM_SYST3_FIXED_23, (100, 100))
+        elif fixed_1 and fixed_2 and fixed_3:
+            WINDOW.blit(NUM_SYST3_FIXED_FULL, (100, 100))
+
+    if level == 4:
+
+        if not fixed_1 and not fixed_2 and not fixed_3:
+            WINDOW.blit(NUM_SYST4_BROKEN, (100, 100))
+        if fixed_1 and not fixed_2 and not fixed_3:
+            WINDOW.blit(NUM_SYST4_FIXED_1, (100, 100))
+        if not fixed_1 and fixed_2 and not fixed_3:
+            WINDOW.blit(NUM_SYST4_FIXED_2, (100,100))
+        if not fixed_1 and not fixed_2 and fixed_3:
+            WINDOW.blit(NUM_SYST4_FIXED_3, (100,100))
+        if fixed_1 and fixed_2 and not fixed_3:
+            WINDOW.blit(NUM_SYST4_FIXED_12, (100, 100))
+        if fixed_1 and not fixed_2 and fixed_3:
+            WINDOW.blit(NUM_SYST4_FIXED_13, (100, 100))
+        if not fixed_1 and fixed_2 and fixed_3:
+            WINDOW.blit(NUM_SYST4_FIXED_23, (100, 100))
+        elif fixed_1 and fixed_2 and fixed_3:
+            WINDOW.blit(NUM_SYST4_FIXED_FULL, (100, 100))
 
     if level == 5:
         if not fixed_1 and not fixed_2 and not fixed_3 and not fixed_4:
@@ -151,6 +191,10 @@ def refresh(aimbox, model, text, color, keys_pressed, level, fixed_1, fixed_2, f
         il1.interact(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, mistakes)
     elif level == 2:
         il1.interact(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, mistakes)
+    elif level == 3:
+        il3.interact3(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
+    elif level == 4:
+        il4.interact4(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, level, mistakes)
     elif level == 5:
         interact5(aimbox, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
     elif level == 6:
