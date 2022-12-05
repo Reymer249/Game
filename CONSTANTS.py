@@ -106,9 +106,9 @@ READMENU_ARROW_DIST = 370
 READMENU_SLIDECOUNT = 4
 
 READMENU_SCREENSHOTS = [
-    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_5_6.png")),
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_intro.jpg")),
     pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_1_2.png")),
-    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_5_6.png")),
+    pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_3_4.png")),
     pygame.image.load(os.path.join("Assets", "main_menu", "read_menu", "screenshot_5_6.png"))
 ]
 READMENU_SCREENSHOTS = [pygame.transform.scale(
