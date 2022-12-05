@@ -3,6 +3,7 @@ import pygame
 import CONSTANTS
 
 from core import menu_logic
+from core import read_menu_logic
 from core.interact_logic import *
 from core.interact_logic import interact
 from core.movement_logic import *
@@ -11,11 +12,64 @@ from core.interact_logic_5 import *
 import core.interact_logic_6 as il6
 import core.interact_logic1 as il1
 
+
+def read_menu(level):
+    # defining variables used in main
+    left_arrow_rectangle = pygame.Rect(
+        (WIDTH // 2 - READMENU_ARROW_DIST,
+         READMENU_SCREEN_PADDING + READMENU_SCREENSHOT_HEI // 2 - READMENU_ARROW_L.get_height() // 2),
+        (READMENU_ARROW_L.get_width(),
+         READMENU_ARROW_L.get_height()))
+    right_arrow_rectangle = pygame.Rect(
+        (WIDTH // 2 + READMENU_ARROW_DIST - READMENU_ARROW_R.get_width(),
+         READMENU_SCREEN_PADDING + READMENU_SCREENSHOT_HEI // 2 - READMENU_ARROW_R.get_height() // 2),
+        (READMENU_ARROW_R.get_width(),
+         READMENU_ARROW_R.get_height()))
+    exit_button_rectangle = pygame.Rect(
+        (READMENU_SCREEN_PADDING, READMENU_SCREEN_PADDING),
+        (READMENU_CROSS.get_width(), READMENU_CROSS.get_height()))
+    clock = pygame.time.Clock()
+
+    if_button_clicked = False
+
+    slide = 0
+
+    run = True
+    while run:
+        clock.tick(FPS)  # function to have stable FPS
+        # checking for x button to quit
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+        draw_read_menu(slide)
+
+        to_do = read_menu_logic.check_mouse(left_arrow_rectangle, right_arrow_rectangle, exit_button_rectangle)
+
+        if to_do == "none":
+            if_button_clicked = False
+
+        if not if_button_clicked:
+            if to_do == "left":
+                if slide > 0:
+                    slide -= 1
+                if_button_clicked = True
+            elif to_do == "right":
+                if slide < READMENU_SLIDECOUNT - 1:
+                    slide += 1
+                if_button_clicked = True
+            elif to_do == "exit":
+                main_menu(level)
+                run = False
+
+    pygame.quit()
+
+
 def main_menu(level):
     # defining variables used in main
-    start_button_rectangle = pygame.Rect((WIDTH//2 - BUTTON_WIDTH//2, 60), (BUTTON_WIDTH, BUTTON_HEIGHT))
-    read_button_rectangle = pygame.Rect((WIDTH//2 - BUTTON_WIDTH//2, 280), (BUTTON_WIDTH, BUTTON_HEIGHT))
-    exit_button_rectangle = pygame.Rect((WIDTH//2 - BUTTON_WIDTH//2, 500), (BUTTON_WIDTH, BUTTON_HEIGHT))
+    start_button_rectangle = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, 60), (BUTTON_WIDTH, BUTTON_HEIGHT))
+    read_button_rectangle = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, 280), (BUTTON_WIDTH, BUTTON_HEIGHT))
+    exit_button_rectangle = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, 500), (BUTTON_WIDTH, BUTTON_HEIGHT))
     clock = pygame.time.Clock()
 
     run = True
@@ -40,7 +94,8 @@ def main_menu(level):
             elif level == 6:
                 level6()
         elif to_do == "read":
-            continue
+            read_menu(level)
+            run = False
         elif to_do == "exit":
             run = False
 
@@ -71,7 +126,6 @@ def level1():  # main function of our game
             if event.type == pygame.QUIT:
                 run = False
 
-
         # getting the keys pressed
         keys_pressed = pygame.key.get_pressed()
 
@@ -87,15 +141,22 @@ def level1():  # main function of our game
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes = il1.interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes = il1.interact(character_rectangle,
+                                                                                                   keys_pressed,
+                                                                                                   fixed_1, fixed_2,
+                                                                                                   fixed_3, fixed_4,
+                                                                                                   fixed_5, fixed_6,
+                                                                                                   level, mistakes)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3,
+                fixed_4, fixed_5, fixed_6, mistakes, nxt)
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level2()
 
     pygame.quit()
+
 
 def level2():  # main function of our game
 
@@ -139,13 +200,19 @@ def level2():  # main function of our game
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes = il1.interact(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes = il1.interact(character_rectangle,
+                                                                                                   keys_pressed,
+                                                                                                   fixed_1, fixed_2,
+                                                                                                   fixed_3, fixed_4,
+                                                                                                   fixed_5, fixed_6,
+                                                                                                   level, mistakes)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3,
+                fixed_4, fixed_5, fixed_6, mistakes, nxt)
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
-            level5()
+            level2()
 
     pygame.quit()
 
@@ -184,9 +251,6 @@ def level5():
         if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
             main_menu(level)
 
-        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
-            main_menu()
-
         if fixed_1 and fixed_2 and fixed_3 and fixed_4:
             nxt = True
 
@@ -196,15 +260,19 @@ def level5():
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes = interact5(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes = interact5(character_rectangle, keys_pressed,
+                                                                              fixed_1, fixed_2, fixed_3, fixed_4, level,
+                                                                              mistakes)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3,
+                fixed_4, fixed_5, fixed_6, mistakes, nxt)
 
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level6()
 
     pygame.quit()
+
 
 def level6():
     # defining variables used in main
@@ -246,14 +314,17 @@ def level6():
         CONSTANTS.CHARACTER = turn(CONSTANTS.CHARACTER, keys_pressed)
 
         # interaction logic
-        text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes = il6.interact6(character_rectangle, keys_pressed, fixed_1, fixed_2, fixed_3, fixed_4, level, mistakes)
+        text, color, fixed_1, fixed_2, fixed_3, fixed_4, mistakes = il6.interact6(character_rectangle, keys_pressed,
+                                                                                  fixed_1, fixed_2, fixed_3, fixed_4,
+                                                                                  level, mistakes)
 
         # refreshing the picture
-        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
-        if nxt == True and character_rectangle.colliderect(DOOR_RECT):
-            final_level()
+        refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3,
+                fixed_4, fixed_5, fixed_6, mistakes, nxt)
+        print(fixed_1, fixed_2, fixed_3, fixed_4)
 
     pygame.quit()
+
 
 def final_level():  # main function of our game
     # defining variables used in main
@@ -286,7 +357,6 @@ def final_level():  # main function of our game
     pygame.quit()
 
 
-
 # calling the main function
 if __name__ == "__main__":
-    main_menu(1)
+    level2()
