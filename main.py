@@ -87,14 +87,8 @@ def main_menu(level):
         to_do = menu_logic.check_mouse(start_button_rectangle, read_button_rectangle, exit_button_rectangle)
 
         if to_do == "start":
-            if level == 1:
-                level1()
-            elif level == 2:
-                level2()
-            elif level == 5:
-                level5()
-            elif level == 6:
-                level6()
+            levels = [level1, level2, level3, level4, level5, level6]
+            levels[level - 1]()
         elif to_do == "read":
             read_menu(level)
             run = False
@@ -304,7 +298,6 @@ def level4():
 
         # refreshing the picture
         refresh(character_rectangle, CONSTANTS.CHARACTER, text, color, keys_pressed, level, fixed_1, fixed_2, fixed_3, fixed_4, fixed_5, fixed_6, mistakes, nxt)
-        print(character_rectangle.x, character_rectangle.y)
         if nxt == True and character_rectangle.colliderect(DOOR_RECT):
             level5()
             run = False
@@ -455,4 +448,4 @@ def final_level():  # main function of our game
 
 # calling the main function
 if __name__ == "__main__":
-    level4()
+    main_menu(1)
