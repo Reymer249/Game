@@ -87,7 +87,7 @@ def main_menu(level):
         to_do = menu_logic.check_mouse(start_button_rectangle, read_button_rectangle, exit_button_rectangle)
 
         if to_do == "start":
-            levels = [level1, level2, level3, level4, level5, level6]
+            levels = [level1, level2, level3, level4, level5, level6, final_level]
             levels[level - 1]()
         elif to_do == "read":
             read_menu(level)
@@ -125,7 +125,7 @@ def level1():  # main function of our game
         # getting the keys pressed
         keys_pressed = pygame.key.get_pressed()
 
-        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
+        if keys_pressed[pygame.K_ESCAPE]:
             main_menu(level)
 
         if fixed_1 and fixed_2 and fixed_3:
@@ -178,7 +178,7 @@ def level2():  # main function of our game
         # getting the keys pressed
         keys_pressed = pygame.key.get_pressed()
 
-        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
+        if keys_pressed[pygame.K_ESCAPE]:
             main_menu(level)
 
         if fixed_1 and fixed_2 and fixed_3 and fixed_4 and fixed_5 and fixed_6:
@@ -232,7 +232,7 @@ def level3():
         if fixed_1 and fixed_2 and fixed_3 and fixed_4 and fixed_5 and fixed_6:
             nxt = True
 
-        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
+        if keys_pressed[pygame.K_ESCAPE]:
             main_menu(level)
 
         # changing the coordinates using the pygame buttons tracker
@@ -281,7 +281,7 @@ def level4():
         if fixed_1 and fixed_2 and fixed_3 and fixed_4 and fixed_5 and fixed_6:
             nxt = True
 
-        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
+        if keys_pressed[pygame.K_ESCAPE]:
             main_menu(level)
 
         # changing the coordinates using the pygame buttons tracker
@@ -331,7 +331,7 @@ def level5():
         if fixed_1 and fixed_2 and fixed_3 and fixed_4 and fixed_5 and fixed_6:
             nxt = True
 
-        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
+        if keys_pressed[pygame.K_ESCAPE]:
             main_menu(level)
 
         if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
@@ -385,7 +385,7 @@ def level6():
         # getting the keys pressed
         keys_pressed = pygame.key.get_pressed()
 
-        if keys_pressed[pygame.K_q] and keys_pressed[pygame.K_ESCAPE]:
+        if keys_pressed[pygame.K_ESCAPE]:
             main_menu(level)
 
         if fixed_1 and fixed_2 and fixed_3 and fixed_4:
@@ -408,10 +408,11 @@ def level6():
     pygame.quit()
 
 
-def final_level():  # main function of our game
+def final_level():
     # defining variables used in main
     character_rectangle = pygame.Rect(0, 0, CONSTANTS.SCALE_WIDTH, CONSTANTS.SCALE_HEIGHT)
     clock = pygame.time.Clock()
+    level = 7
 
     # main loop of our game
     run = True
@@ -424,6 +425,9 @@ def final_level():  # main function of our game
 
         # getting the keys pressed
         keys_pressed = pygame.key.get_pressed()
+
+        if keys_pressed[pygame.K_ESCAPE]:
+            main_menu(level)
 
         # changing the coordinates using the pygame buttons tracker
         character_rectangle.x, character_rectangle.y = movement(VELOCITY, character_rectangle, keys_pressed)
@@ -442,4 +446,4 @@ def final_level():  # main function of our game
 
 # calling the main function
 if __name__ == "__main__":
-    level5()
+    main_menu(1)
